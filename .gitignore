@@ -1,0 +1,25 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+
+# Temporary / cache directories
+tmp/
+.cache/
+.idea/
+.vscode/
+
+# Screenshots and docs (optional)
+docs/screenshots/
+
+# History files if you ever persist to disk
+history.json

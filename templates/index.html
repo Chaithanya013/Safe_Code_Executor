@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Safe Code Executor IDE</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{
+      --sidebar:#0f172a;
+      --editor-bg:#020617;
+      --panel-bg:#020617;
+      --history-bg:#020617;
+      --accent:#3b82f6;
+      --accent-soft:rgba(59,130,246,0.2);
+      --border-soft:rgba(148,163,184,0.35);
+      --muted:#94a3b8;
+      --text:#e5e7eb;
+      --danger:#f97373;
+      --success:#4ade80;
+      --radius:10px;
+      --mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    *{box-sizing:border-box;}
+    html,body{
+      margin:0;
+      height:100%;
+      font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background: radial-gradient(circle at top, #1d283a 0, #020617 55%);
+      color:var(--text);
+    }
+
+    body{
+      display:flex;
+      align-items:stretch;
+      justify-content:center;
+      padding:8px;
+    }
+
+    .app{
+      display:grid;
+      grid-template-columns: 64px 2fr 1.1fr;
+      grid-template-rows: 44px minmax(0, 1fr) 220px;
+      grid-template-areas:
+        "sidebar header header"
+        "sidebar editor history"
+        "sidebar terminal history";
+      width:100%;
+      max-width:1200px;
+      height:100%;
+      max-height:720px;
+      border-radius:14px;
+      border:1px solid rgba(148,163,184,0.35);
+      background: linear-gradient(135deg, rgba(15,23,42,0.96), rgba(2,6,23,0.98));
+      box-shadow: 0 18px 50px rgba(15,23,42,0.9);
+      overflow:hidden;
+    }
+
+    /* Sidebar */
+    .sidebar{
+      grid-area:sidebar;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 60%);
+      border-right:1px solid rgba(148,163,184,0.25);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding-top:8px;
+      gap:8px;
+    }
+    .logo{
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:4px;
+      text-align:center;
+    }
+    .sb-icon{
+      width:40px;
+      height:40px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      color:var(--muted);
+      font-size:18px;
+      transition:all .15s ease;
+    }
+    .sb-icon.active,
+    .sb-icon:hover{
+      background:var(--accent-soft);
+      color:var(--text);
+      box-shadow:0 4px 12px rgba(15,23,42,0.8);
+    }
+    .sb-spacer{flex:1;}
+
+    /* Header */
+    .header{
+      grid-area:header;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:6px 14px;
+      border-bottom:1px solid rgba(148,163,184,0.3);
+      background: linear-gradient(90deg, rgba(15,23,42,0.95), rgba(15,23,42,0.85));
+      backdrop-filter: blur(10px);
+    }
+    .tabs{
+      display:flex;
+      gap:6px;
+      align-items:center;
+    }
+    .tab{
+      padding:5px 10px;
+      border-radius:8px;
+      background:rgba(15,23,42,0.9);
+      border:1px solid rgba(148,163,184,0.3);
+      font-size:12px;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      color:var(--muted);
+    }
+    .tab.active{
+      background:rgba(15,23,42,1);
+      color:var(--text);
+      border-color:var(--accent-soft);
+      box-shadow:0 4px 12px rgba(15,23,42,0.8);
+    }
+    .header-right{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .kbd{
+      border-radius:6px;
+      border:1px solid rgba(148,163,184,0.4);
+      padding:2px 6px;
+      font-family:var(--mono);
+      font-size:11px;
+      color:var(--muted);
+    }
+
+    .btn{
+      border-radius:8px;
+      border:1px solid rgba(148,163,184,0.5);
+      background:rgba(15,23,42,0.9);
+      color:var(--text);
+      padding:6px 10px;
+      font-size:12px;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      transition:all .15s ease;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, var(--accent), #2563eb);
+      border-color:transparent;
+      color:white;
+      font-weight:600;
+      box-shadow:0 4px 14px rgba(37,99,235,0.7);
+    }
+    .btn.ghost{
+      border-style:dashed;
+      border-color:rgba(148,163,184,0.5);
+      background:transparent;
+      color:var(--muted);
+    }
+    .btn:disabled{
+      opacity:.65;
+      cursor:wait;
+      box-shadow:none;
+    }
+    .btn:hover:not(:disabled){
+      transform:translateY(-1px);
+      box-shadow:0 6px 16px rgba(15,23,42,0.9);
+    }
+
+    /* Editor + History area */
+    .editor{
+      grid-area:editor;
+      padding:10px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .editor-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .lang-select{
+      border-radius:6px;
+      border:1px solid rgba(148,163,184,0.4);
+      background:rgba(15,23,42,0.95);
+      color:var(--text);
+      font-size:12px;
+      padding:4px 8px;
+    }
+    .main-split{
+      display:grid;
+      grid-template-columns: minmax(0, 1.4fr);
+      gap:10px;
+      height:100%;
+    }
+    .code-panel{
+      background:var(--editor-bg);
+      border-radius:var(--radius);
+      border:1px solid var(--border-soft);
+      box-shadow:0 10px 30px rgba(15,23,42,0.9);
+      display:flex;
+      overflow:hidden;
+    }
+    .gutter{
+      width:45px;
+      background:linear-gradient(180deg, #020617, #02081b);
+      border-right:1px solid rgba(30,64,175,0.7);
+      padding:8px 6px;
+      font-family:var(--mono);
+      font-size:11px;
+      color:var(--muted);
+      text-align:right;
+      user-select:none;
+    }
+    .gutter div{ line-height:1.4; }
+    .code-wrap{
+      flex:1;
+      padding:8px 10px;
+    }
+    #code{
+      width:100%;
+      height:100%;
+      border:none;
+      outline:none;
+      resize:none;
+      background:transparent;
+      color:var(--text);
+      font-family:var(--mono);
+      font-size:13px;
+      line-height:1.4;
+    }
+
+    /* Terminal */
+    .terminal{
+      grid-area:terminal;
+      padding:10px;
+      border-top:1px solid rgba(148,163,184,0.4);
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      background: radial-gradient(circle at bottom, #020617 0, #020617 60%);
+    }
+    .terminal-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-size:13px;
+      color:var(--muted);
+    }
+    #status{
+      font-size:12px;
+    }
+    #terminal{
+      flex:1;
+      background:#020617;
+      border-radius:var(--radius);
+      border:1px solid rgba(15,23,42,0.9);
+      box-shadow:0 10px 30px rgba(0,0,0,0.9);
+      padding:10px;
+      font-family:var(--mono);
+      font-size:13px;
+      color:#d1fae5;
+      overflow:auto;
+      white-space:pre-wrap;
+    }
+
+    /* History panel */
+    .history{
+      grid-area:history;
+      border-left:1px solid rgba(148,163,184,0.35);
+      padding:10px;
+      background:radial-gradient(circle at top, #020617 0, #020617 60%);
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      font-size:12px;
+    }
+    .history-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      color:var(--muted);
+    }
+    .history-list{
+      flex:1;
+      border-radius:var(--radius);
+      border:1px solid rgba(148,163,184,0.35);
+      background:var(--history-bg);
+      padding:6px;
+      overflow:auto;
+    }
+    .history-item{
+      border-radius:8px;
+      padding:6px 8px;
+      margin-bottom:4px;
+      background:rgba(15,23,42,0.9);
+      border:1px solid rgba(30,64,175,0.6);
+      cursor:pointer;
+      transition:background .15s ease, transform .1s ease;
+    }
+    .history-item:hover{
+      background:rgba(15,23,42,1);
+      transform:translateY(-1px);
+    }
+    .history-title{
+      display:flex;
+      justify-content:space-between;
+      font-size:12px;
+      color:var(--text);
+    }
+    .history-meta{
+      font-size:11px;
+      color:var(--muted);
+      margin-top:2px;
+    }
+    .badge{
+      padding:1px 6px;
+      border-radius:6px;
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+    .badge.ok{
+      background:rgba(22,163,74,0.2);
+      color:#bbf7d0;
+    }
+    .badge.err{
+      background:rgba(220,38,38,0.2);
+      color:#fecaca;
+    }
+
+    .spinner{
+      width:13px;
+      height:13px;
+      border-radius:50%;
+      border:2px solid rgba(148,163,184,0.5);
+      border-top-color:var(--accent);
+      display:inline-block;
+      margin-right:4px;
+      animation:spin 0.9s linear infinite;
+    }
+    @keyframes spin{
+      to{ transform:rotate(360deg); }
+    }
+
+    @media (max-width:1000px){
+      .app{
+        grid-template-columns: 56px minmax(0,1fr);
+        grid-template-rows:44px minmax(0,1fr) minmax(0,220px) 200px;
+        grid-template-areas:
+          "sidebar header"
+          "sidebar editor"
+          "sidebar terminal"
+          "sidebar history";
+        max-height:none;
+        height:100vh;
+      }
+    }
+
+    @media (max-width:720px){
+      .app{
+        grid-template-columns: 1fr;
+        grid-template-rows: 44px minmax(0,1fr) 180px 200px;
+        grid-template-areas:
+          "header"
+          "editor"
+          "terminal"
+          "history";
+      }
+      .sidebar{ display:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app" role="application" aria-label="Safe Code Executor IDE">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">SAFE<br>EXEC</div>
+      <div class="sb-icon active" title="Editor">📝</div>
+      <div class="sb-icon" title="History">🕒</div>
+      <div class="sb-spacer"></div>
+      <div class="sb-icon" title="Settings">⚙️</div>
+    </aside>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="tabs">
+        <div class="tab active">
+          <span>script</span><span style="font-size:11px;color:var(--muted);">.code</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <span>Run</span>
+        <span class="kbd">Ctrl</span> + <span class="kbd">Enter</span>
+        <button id="clearBtn" class="btn ghost" type="button">Clear Editor</button>
+        <button id="runBtn" class="btn primary" type="button">▶ Run</button>
+      </div>
+    </header>
+
+    <!-- Editor -->
+    <main class="editor">
+      <div class="editor-header">
+        <div>Safe Code Executor</div>
+        <div>
+          <label for="language" style="margin-right:4px;">Language:</label>
+          <select id="language" class="lang-select">
+            <option value="python">Python</option>
+            <option value="node">Node.js (JavaScript)</option>
+          </select>
+        </div>
+      </div>
+      <div class="main-split">
+        <section class="code-panel" aria-label="Code editor">
+          <div class="gutter" id="gutter"></div>
+          <div class="code-wrap">
+            <textarea id="code" spellcheck="false" aria-label="Code editor"></textarea>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Terminal -->
+    <section class="terminal" aria-label="Output terminal">
+      <div class="terminal-header">
+        <div style="display:flex;align-items:center;gap:6px;">
+          <strong>Terminal</strong>
+          <span id="status">Idle</span>
+        </div>
+        <div>
+          <button id="clearTermBtn" class="btn ghost" type="button">Clear Output</button>
+        </div>
+      </div>
+      <pre id="terminal"></pre>
+    </section>
+
+    <!-- History -->
+    <aside class="history" aria-label="Execution history">
+      <div class="history-header">
+        <span>History</span>
+        <button id="clearHistoryBtn" class="btn ghost" type="button" style="padding:3px 8px;font-size:11px;">Clear</button>
+      </div>
+      <div class="history-list" id="historyList">
+        <!-- history items injected here -->
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    const codeEl = document.getElementById('code');
+    const gutterEl = document.getElementById('gutter');
+    const runBtn = document.getElementById('runBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const clearTermBtn = document.getElementById('clearTermBtn');
+    const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+    const terminalEl = document.getElementById('terminal');
+    const statusEl = document.getElementById('status');
+    const languageEl = document.getElementById('language');
+    const historyListEl = document.getElementById('historyList');
+
+    const MAX_LOCAL_LENGTH = 5000;
+
+    // Initial seed code
+    function getDefaultCodeForLanguage(lang){
+      if (lang === 'node'){
+        return "console.log('Hello from Node.js');\n";
+      }
+      return "print('Hello from Python')\n";
+    }
+
+    function setInitialCode(){
+      const lang = languageEl.value;
+      codeEl.value = getDefaultCodeForLanguage(lang);
+      updateGutter();
+    }
+
+    // Gutter line numbers
+    function updateGutter(){
+      const lines = (codeEl.value.match(/\n/g) || []).length + 1;
+      gutterEl.innerHTML = '';
+      for(let i=1; i<=lines; i++){
+        const div = document.createElement('div');
+        div.textContent = i;
+        gutterEl.appendChild(div);
+      }
+    }
+
+    // Status + spinner
+    function setStatus(text, busy=false){
+      statusEl.textContent = text;
+      statusEl.style.color = busy ? '#facc15' : '#94a3b8';
+
+      const existing = statusEl.querySelector('.spinner');
+      if (busy){
+        if (!existing){
+          const span = document.createElement('span');
+          span.className = 'spinner';
+          statusEl.prepend(span);
+        }
+      } else {
+        if (existing) existing.remove();
+      }
+    }
+
+    function printTerminal(text){
+      terminalEl.textContent = text || '';
+      terminalEl.scrollTop = terminalEl.scrollHeight;
+    }
+
+    // Run code
+    async function runCode(){
+      const code = codeEl.value || '';
+      const language = languageEl.value;
+
+      if (code.trim() === ''){
+        printTerminal('Error: code is empty.');
+        return;
+      }
+      if (code.length > MAX_LOCAL_LENGTH){
+        printTerminal('Error: Code too long. Maximum allowed length is 5000 characters.');
+        return;
+      }
+
+      runBtn.disabled = true;
+      runBtn.textContent = 'Running...';
+      setStatus('Running', true);
+      printTerminal('');
+
+      try{
+        const res = await fetch('/run', {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ language, code }),
+        });
+        const data = await res.json();
+
+        if (res.ok && data.output !== undefined){
+          printTerminal(data.output);
+          setStatus('Finished', false);
+        }else if (data.error){
+          const details = data.details ? '\n\n' + data.details : '';
+          printTerminal('❌ ' + data.error + details);
+          setStatus('Error', false);
+        }else{
+          printTerminal(JSON.stringify(data,null,2));
+          setStatus('Finished', false);
+        }
+      }catch(err){
+        printTerminal('Network or server error: ' + (err.message || err));
+        setStatus('Error', false);
+      }finally{
+        runBtn.disabled = false;
+        runBtn.textContent = '▶ Run';
+        fetchHistory();
+      }
+    }
+
+    // History
+    async function fetchHistory(){
+      try{
+        const res = await fetch('/history');
+        if (!res.ok) return;
+        const data = await res.json();
+        renderHistory(data.history || []);
+      }catch(e){
+        // ignore
+      }
+    }
+
+    function renderHistory(items){
+      historyListEl.innerHTML = '';
+      if (!items.length){
+        const p = document.createElement('div');
+        p.textContent = 'No executions yet.';
+        p.style.color = '#64748b';
+        p.style.fontSize = '12px';
+        historyListEl.appendChild(p);
+        return;
+      }
+
+      items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'history-item';
+
+        const title = document.createElement('div');
+        title.className = 'history-title';
+
+        const langSpan = document.createElement('span');
+        langSpan.textContent = item.language.toUpperCase();
+
+        const badge = document.createElement('span');
+        badge.className = 'badge ' + (item.error ? 'err':'ok');
+        badge.textContent = item.error ? 'Error' : 'OK';
+
+        title.appendChild(langSpan);
+        title.appendChild(badge);
+
+        const meta = document.createElement('div');
+        meta.className = 'history-meta';
+        const date = new Date(item.timestamp * 1000);
+        const timeStr = date.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+        const dur = (item.duration || 0).toFixed(3);
+        meta.textContent = `${timeStr} • ${dur}s`;
+
+        const preview = document.createElement('div');
+        preview.className = 'history-meta';
+        const snippet = (item.code || '').split('\n')[0];
+        preview.textContent = snippet.length > 40 ? snippet.slice(0,40) + '…' : snippet;
+
+        div.appendChild(title);
+        div.appendChild(meta);
+        div.appendChild(preview);
+
+        // Click history: load code into editor
+        div.addEventListener('click', () => {
+          languageEl.value = item.language || 'python';
+          codeEl.value = item.code || '';
+          updateGutter();
+        });
+
+        historyListEl.appendChild(div);
+      });
+    }
+
+    async function clearHistory(){
+      try{
+        await fetch('/history/clear', { method:'POST' });
+        fetchHistory();
+      }catch(e){}
+    }
+
+    // Events
+    runBtn.addEventListener('click', runCode);
+    clearBtn.addEventListener('click', () => { codeEl.value=''; updateGutter(); });
+    clearTermBtn.addEventListener('click', () => { printTerminal(''); setStatus('Idle', false); });
+    clearHistoryBtn.addEventListener('click', clearHistory);
+
+    codeEl.addEventListener('input', updateGutter);
+    codeEl.addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter'){
+        e.preventDefault();
+        runCode();
+      }else if (e.key === 'Tab'){
+        e.preventDefault();
+        const start = codeEl.selectionStart;
+        const end = codeEl.selectionEnd;
+        const val = codeEl.value;
+        codeEl.value = val.substring(0,start) + '  ' + val.substring(end);
+        codeEl.selectionStart = codeEl.selectionEnd = start + 2;
+        updateGutter();
+      }
+    });
+
+    languageEl.addEventListener('change', () => {
+      setInitialCode();
+    });
+
+    // Init
+    setInitialCode();
+    fetchHistory();
+  </script>
+</body>
+</html>
