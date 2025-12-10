@@ -212,16 +212,6 @@ This section explains exactly how to set up the **Safe Code Executor** project o
 
 ---
 
-## 📌 Screenshot Placeholder (Setup Overview)
-
-Add this image after you capture your setup environment:
-
-```markdown
-![Project Setup Overview](docs/screenshots/setup-overview.png)
-```
-
----
-
 # 5.1. Clone the Project
 
 ### Command:
@@ -235,12 +225,6 @@ cd Safe_Code_Executor
 
 * `git clone` downloads the repository.
 * `cd Safe_Code_Executor` moves into the project directory where all code lives.
-
-### Screenshot Placeholder:
-
-```markdown
-![Cloning Repository](docs/screenshots/git-clone.png)
-```
 
 ---
 
