@@ -16,35 +16,34 @@ A learning project where users submit code via an API, and it is executed safely
 
 - [1. Overview](#1-overview)
 - [2. Features](#2-features)
-- [3. Screenshots](#3-screenshots)
-- [4. Project Structure](#4-project-structure)
-- [5. Prerequisites](#5-prerequisites)
-- [6. Setup & Installation](#6-setup--installation)
-  - [6.1. Clone the project](#61-clone-the-project)
-  - [6.2. Create and activate virtual environment](#62-create-and-activate-virtual-environment)
-  - [6.3. Install dependencies](#63-install-dependencies)
-  - [6.4. Pull Docker images](#64-pull-docker-images)
-- [7. Running the Project](#7-running-the-project)
-  - [7.1. Terminal 1: Run the Flask server](#71-terminal-1-run-the-flask-server)
-  - [7.2. Terminal 2: Run tests and send API requests](#72-terminal-2-run-tests-and-send-api-requests)
-- [8. API Usage (Python & Node.js)](#8-api-usage-python--nodejs)
-  - [8.1. Basic Python example](#81-basic-python-example)
-  - [8.2. Basic Node.js example (bonus)](#82-basic-nodejs-example-bonus)
-  - [8.3. Error and validation examples](#83-error-and-validation-examples)
-- [9. Web UI](#9-web-ui)
-- [10. Security Features](#10-security-features)
-  - [10.1. Timeout](#101-timeout)
-  - [10.2. Memory Limits](#102-memory-limits)
-  - [10.3. Network Blocking](#103-network-blocking)
-  - [10.4. Read-only Filesystem](#104-read-only-filesystem)
-  - [10.5. Code Length Limit](#105-code-length-limit)
-- [11. Docker Security Experiments](#11-docker-security-experiments)
-- [12. Full Test Command Suite](#12-full-test-command-suite)
-- [13. Internal Design](#13-internal-design)
-- [14. Extending the Project](#14-extending-the-project)
-- [15. Troubleshooting & Common Issues](#15-troubleshooting--common-issues)
-- [16. Git & Deliverables Checklist](#16-git--deliverables-checklist)
-- [17. What I Learned](#17-what-i-learned)
+- [3. Project Structure](#3-project-structure)
+- [4. Prerequisites](#4-prerequisites)
+- [5. Setup & Installation](#5-setup--installation)
+  - [5.1. Clone the project](#51-clone-the-project)
+  - [5.2. Create and activate virtual environment](#52-create-and-activate-virtual-environment)
+  - [5.3. Install dependencies](#53-install-dependencies)
+  - [5.4. Pull Docker images](#54-pull-docker-images)
+- [6. Running the Project](#6-running-the-project)
+  - [6.1. Terminal 1: Run the Flask server](#61-terminal-1-run-the-flask-server)
+  - [6.2. Terminal 2: Run tests and send API requests](#62-terminal-2-run-tests-and-send-api-requests)
+- [7. API Usage (Python & Node.js)](#7-api-usage-python--nodejs)
+  - [7.1. Basic Python example](#71-basic-python-example)
+  - [7.2. Basic Node.js example (bonus)](#72-basic-nodejs-example-bonus)
+  - [7.3. Error and validation examples](#73-error-and-validation-examples)
+- [8. Web UI](#8-web-ui)
+- [9. Security Features](#9-security-features)
+  - [9.1. Timeout](#91-timeout)
+  - [9.2. Memory Limits](#92-memory-limits)
+  - [9.3. Network Blocking](#93-network-blocking)
+  - [9.4. Read-only Filesystem](#94-read-only-filesystem)
+  - [9.5. Code Length Limit](#95-code-length-limit)
+- [10. Docker Security Experiments](#10-docker-security-experiments)
+- [11. Full Test Command Suite](#11-full-test-command-suite)
+- [12. Internal Design](#12-internal-design)
+- [13. Extending the Project](#13-extending-the-project)
+- [14. Troubleshooting & Common Issues](#14-troubleshooting--common-issues)
+- [15. Git & Deliverables Checklist](#15-git--deliverables-checklist)
+- [16. What I Learned](#16-what-i-learned)
 
 ---
 
@@ -85,39 +84,7 @@ This project is a **Safe Code Executor**:
 
 ---
 
-## 3. Screenshots
-
-Add your own screenshots and adjust paths as needed.
-
-Recommended locations:
-
-- **UI main page**  
-  `docs/screenshots/ui-main.png`
-- **Security tests (terminal)**  
-  `docs/screenshots/security-tests.png`
-
-Example placements in this README:
-
-```markdown
-### UI Overview
-
-![Safe Code Executor UI](docs/screenshots/ui-main.png)
-
-The UI looks similar to a mini VS Code window with:
-- A sidebar
-- A code editor area
-- Run & Clear buttons
-- A black terminal-style output pane.
-
-### Security Testing (Two-Terminal Setup)
-
-![Security Tests in Two Terminals](docs/screenshots/security-tests.png)
-
-We use:
-- **Terminal 1** → to run the Flask server
-- **Terminal 2** → to send test requests and run curl commands
-
-## 4. Project Structure
+## 3. Project Structure
 
 ```text
 Safe_Code_Executor/
@@ -130,13 +97,13 @@ Safe_Code_Executor/
 └── .gitignore             # Ignore venv, __pycache__, etc.
 ```
 
-# 5. Prerequisites
+# 4. Prerequisites
 
 To run and test the **Safe Code Executor** project successfully, ensure your system meets the following requirements.
 
 ---
 
-## 5.1. Software Requirements
+## 4.1. Software Requirements
 
 These tools must be installed on your machine:
 
@@ -175,7 +142,7 @@ sudo apt install jq -y
 
 ---
 
-## 5.2. System Requirements
+## 4.2. System Requirements
 
 ### Operating System Compatibility
 
@@ -198,7 +165,7 @@ After pulling once, local execution does not need internet.
 
 ---
 
-## 5.3. Recommended Setup
+## 4.3. Recommended Setup
 
 Best experience comes from using **two terminals**:
 
@@ -212,7 +179,7 @@ Used to execute curl commands and test security rules.
 
 ---
 
-## 5.4. Optional Tools for Development
+## 4.4. Optional Tools for Development
 
 ### VS Code or PyCharm
 
@@ -239,7 +206,7 @@ http://localhost:5000/
 This completes all prerequisites needed before installing and running the project.
 
 
-# 6. Setup & Installation
+# 5. Setup & Installation
 
 This section explains exactly how to set up the **Safe Code Executor** project on your machine. It includes installation steps, environment configuration, Docker setup, and screenshot placeholders (formatted for GitHub). All instructions are written so even a beginner can follow without errors.
 
@@ -255,7 +222,7 @@ Add this image after you capture your setup environment:
 
 ---
 
-# 6.1. Clone the Project
+# 5.1. Clone the Project
 
 ### Command:
 
@@ -277,7 +244,7 @@ cd Safe_Code_Executor
 
 ---
 
-# 6.2. Create and Activate Virtual Environment
+# 5.2. Create and Activate Virtual Environment
 
 ### Command (Linux/macOS/WSL):
 
@@ -306,7 +273,7 @@ venv\Scripts\Activate.ps1
 
 ---
 
-# 6.3. Install Dependencies
+# 5.3. Install Dependencies
 
 ### Command:
 
@@ -326,7 +293,7 @@ pip install -r requirements.txt
 
 ---
 
-# 6.4. Pull Docker Images
+# 5.4. Pull Docker Images
 
 ### Command:
 
@@ -353,7 +320,7 @@ docker pull node:20-slim
 
 ---
 
-# 6.5. Verify Docker Installation
+# 5.5. Verify Docker Installation
 
 ### Command:
 
@@ -373,7 +340,7 @@ docker --version
 
 ---
 
-# 6.6. (WSL USERS) Enable Docker Integration
+# 5.6. (WSL USERS) Enable Docker Integration
 
 ### Requirements:
 
@@ -395,7 +362,7 @@ docker --version
 
 ---
 
-# 6.7. Start the Flask Server (Terminal 1)
+# 5.7. Start the Flask Server (Terminal 1)
 
 ### Command:
 
@@ -418,7 +385,7 @@ python3 app.py
 
 ---
 
-# 6.8. Open a Second Terminal for Testing (Terminal 2)
+# 5.8. Open a Second Terminal for Testing (Terminal 2)
 
 ### Command:
 
@@ -443,7 +410,7 @@ source venv/bin/activate
 
 ---
 
-# 6.9. Access the Web UI
+# 5.9. Access the Web UI
 
 ### Open in browser:
 
@@ -464,17 +431,7 @@ http://localhost:5000/
 
 ---
 
-# ✔ End of Section 6 — Setup & Installation
-
-If you want, I can add:
-
-* Section **7 (Running the Project)**
-* Section **8 (API usage)**
-* Or combine everything into a final GitHub-ready README.md inside canvas.
-
----
-
-# 7. Running the Project
+# 6. Running the Project
 
 This section explains how to correctly run the Safe Code Executor using the recommended **two-terminal setup**. This is required for testing, debugging, and verifying Docker sandbox behaviors in real-time.
 
@@ -494,7 +451,7 @@ Each subsection includes:
 
 ---
 
-# 7.1. Terminal 1 — Run the Flask Server
+# 6.1. Terminal 1 — Run the Flask Server
 
 Terminal 1 will run the Flask server continuously. Keep it open at all times.
 
@@ -527,7 +484,7 @@ python3 app.py
  * Running on http://127.0.0.1:5000
 ```
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Flask Running](docs/screenshots/flask-terminal-1.png)
@@ -535,7 +492,7 @@ python3 app.py
 
 ---
 
-# 7.2. Why Two Terminals?
+# 6.2. Why Two Terminals?
 
 Using two terminals is **essential**:
 
@@ -546,7 +503,7 @@ Using two terminals is **essential**:
 
 This separation mirrors real-world backend testing workflows.
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Two Terminal Setup Explanation](docs/screenshots/two-terminal-explanation.png)
@@ -554,7 +511,7 @@ This separation mirrors real-world backend testing workflows.
 
 ---
 
-# 7.3. Terminal 2 — Send Requests, Run Tests
+# 6.3. Terminal 2 — Send Requests, Run Tests
 
 Open a **new terminal**, not the one running Flask.
 
@@ -582,7 +539,7 @@ source venv/bin/activate
 
 ---
 
-# 7.4. Run Example Test Command (Verify Server is Working)
+# 6.4. Run Example Test Command (Verify Server is Working)
 
 In **Terminal 2**, run:
 
@@ -606,7 +563,7 @@ curl -s -X POST http://localhost:5000/run \
 * Confirms Docker executed your Python code.
 * Confirms JSON response formatting.
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Test Command Output](docs/screenshots/test-command-output.png)
@@ -614,7 +571,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 7.5. Run the Full Test Suite
+# 6.5. Run the Full Test Suite
 
 You can test everything (timeouts, memory limits, network blocking, errors) using:
 
@@ -639,7 +596,7 @@ chmod +x run_tests.sh
 
 ---
 
-# 7.6. Open the Browser UI
+# 6.6. Open the Browser UI
 
 While the server is running (Terminal 1), open:
 
@@ -665,7 +622,7 @@ http://localhost:5000/
 
 ---
 
-# 7.7. Confirm UI Interacts with API
+# 6.7. Confirm UI Interacts with API
 
 In the UI editor, type:
 
@@ -693,7 +650,7 @@ Hello from Web UI
 
 ---
 
-# 7.8. Stop the Server
+# 6.8. Stop the Server
 
 Press **CTRL + C** in **Terminal 1** to stop Flask.
 
@@ -710,7 +667,7 @@ Press **CTRL + C** in **Terminal 1** to stop Flask.
 
 ---
 
-# 8. API Usage (Python & Node.js)
+# 7. API Usage (Python & Node.js)
 
 This section explains how to interact with the `/run` API endpoint to execute **Python** and **Node.js (JavaScript)** code safely inside Docker containers.
 
@@ -724,7 +681,7 @@ It includes:
 
 ---
 
-## 📌 Screenshot Placeholder (API Overview)
+## Screenshot Placeholder (API Overview)
 
 ```markdown
 ![API Usage Overview](docs/screenshots/api-overview.png)
@@ -732,7 +689,7 @@ It includes:
 
 ---
 
-# 8.1. API Endpoint Summary
+# 7.1. API Endpoint Summary
 
 ### **Endpoint:**
 
@@ -771,7 +728,7 @@ Content-Type: application/json
 
 ---
 
-# 8.2. Basic Python Example
+# 7.2. Basic Python Example
 
 ### **Command:**
 
@@ -801,7 +758,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 8.3. Basic Node.js Example (Bonus Feature)
+# 7.3. Basic Node.js Example (Bonus Feature)
 
 ### **Command:**
 
@@ -831,7 +788,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 8.4. Multi-Line Python Code Example
+# 7.4. Multi-Line Python Code Example
 
 ### **Command:**
 
@@ -860,7 +817,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 8.5. Error Example — Invalid Code
+# 7.5. Error Example — Invalid Code
 
 ### **Command:**
 
@@ -884,7 +841,7 @@ curl -s -X POST http://localhost:5000/run \
 * Errors from Python or Node.js are captured and returned in `details`.
 * The API does **not crash** even for invalid user code.
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![API Error Example](docs/screenshots/api-error.png)
@@ -892,7 +849,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 8.6. Error Example — Code Too Long (> 5000 chars)
+# 7.6. Error Example — Code Too Long (> 5000 chars)
 
 ### **Command:**
 
@@ -927,7 +884,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 8.7. Error Example — Infinite Loop (Timeout)
+# 7.7. Error Example — Infinite Loop (Timeout)
 
 ### **Command:**
 
@@ -948,7 +905,7 @@ time curl -s -X POST http://localhost:5000/run \
 * The API enforces a **10-second timeout**.
 * The Docker container is safely terminated.
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Timeout Error](docs/screenshots/timeout-error.png)
@@ -956,7 +913,7 @@ time curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 8.8. Error Example — Network Blocked
+# 7.8. Error Example — Network Blocked
 
 ### **Command:**
 
@@ -988,7 +945,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 9. Web UI (VS Code–Style Interface)
+# 8. Web UI (VS Code–Style Interface)
 
 The Safe Code Executor includes a built‑in **web interface** designed to look and feel like a lightweight version of **Visual Studio Code**. This UI allows you to type, run, and clear code easily without needing to use cURL commands.
 
@@ -1006,7 +963,7 @@ This section explains how the UI works, how to interact with it, and includes sc
 
 ---
 
-# 9.1. Accessing the Web UI
+# 8.1. Accessing the Web UI
 
 Once the Flask server is running in **Terminal 1**, open your browser and visit:
 
@@ -1028,7 +985,7 @@ http://localhost:5000/
 
 ---
 
-# 9.2. UI Layout
+# 8.2. UI Layout
 
 The UI contains four major components:
 
@@ -1073,7 +1030,7 @@ A slim vertical bar similar to VS Code’s side navigation.
 
 ---
 
-# 9.3. Running Code from the UI
+# 8.3. Running Code from the UI
 
 ### Steps:
 
@@ -1100,7 +1057,7 @@ Click **Run Code**.
 Hello from Web UI
 ```
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![UI Run Code Example](docs/screenshots/ui-run-example.png)
@@ -1108,7 +1065,7 @@ Hello from Web UI
 
 ---
 
-# 9.4. Error Output in the UI
+# 8.4. Error Output in the UI
 
 The UI displays errors clearly in the terminal panel.
 
@@ -1121,7 +1078,7 @@ print(x)
 ### Expected UI Output:
 
 ```
-❌ Code execution failed.
+Code execution failed.
 NameError: name 'x' is not defined
 ```
 
@@ -1138,7 +1095,7 @@ NameError: name 'x' is not defined
 
 ---
 
-# 9.5. Clearing Editor & Terminal
+# 8.5. Clearing Editor & Terminal
 
 ### Buttons:
 
@@ -1158,7 +1115,7 @@ NameError: name 'x' is not defined
 
 ---
 
-# 9.6. How the UI Communicates With the API
+# 8.6. How the UI Communicates With the API
 
 The UI sends a POST request:
 
@@ -1191,7 +1148,7 @@ With payload:
 
 ---
 
-# 9.7. Using Node.js From the UI (Bonus Feature)
+# 8.7. Using Node.js From the UI (Bonus Feature)
 
 Choose Node.js by adding:
 
@@ -1221,7 +1178,7 @@ Running JavaScript from the UI!
 
 ---
 
-# 9.8. UI Limitations (By Design)
+# 8.8. UI Limitations (By Design)
 
 * No file-saving or multi‑tab support (simple prototype UI).
 * Errors are shown plainly; no syntax highlighting.
@@ -1235,7 +1192,7 @@ Running JavaScript from the UI!
 
 ---
 
-# 10. Security Features
+# 9. Security Features
 
 The Safe Code Executor is designed to safely run untrusted code using Docker-based sandboxing. This section explains every security mechanism implemented in the project, how it works, how to test it, and includes screenshot placeholders for GitHub documentation.
 
@@ -1251,7 +1208,7 @@ Each security layer protects against common attacks such as infinite loops, memo
 
 ---
 
-# 10.1. Execution Timeout (Prevents Infinite Loops)
+# 9.1. Execution Timeout (Prevents Infinite Loops)
 
 The backend uses:
 
@@ -1294,7 +1251,7 @@ time curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 10.2. Memory Limit (Prevents Memory Attacks)
+# 9.2. Memory Limit (Prevents Memory Attacks)
 
 Docker container is run with:
 
@@ -1334,7 +1291,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 10.3. Network Blocking (No External Requests)
+# 9.3. Network Blocking (No External Requests)
 
 Docker is run with:
 
@@ -1376,7 +1333,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 10.4. Read-Only Filesystem (Prevents Writes)
+# 9.4. Read-Only Filesystem (Prevents Writes)
 
 Docker container uses:
 
@@ -1386,7 +1343,7 @@ Docker container uses:
 
 This makes the entire root filesystem unmodifiable.
 
-### 🔒 Protection Against:
+### Protection Against:
 
 * Writing malicious files
 * Dropping payloads
@@ -1428,7 +1385,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 10.5. Code Length Limit (Prevents Massive Payloads)
+# 9.5. Code Length Limit (Prevents Massive Payloads)
 
 Backend checks length before executing code:
 
@@ -1468,7 +1425,7 @@ curl -s -X POST http://localhost:5000/run -H "Content-Type: application/json" -d
 
 ---
 
-# 10.6. Container Auto-Removal (Prevents Resource Waste)
+# 9.6. Container Auto-Removal (Prevents Resource Waste)
 
 Docker flag:
 
@@ -1492,7 +1449,7 @@ Ensures used containers are automatically deleted after execution.
 
 ---
 
-# 10.7. Language Isolation (Python & Node.js)
+# 9.7. Language Isolation (Python & Node.js)
 
 Each language runs in its own container:
 
@@ -1513,7 +1470,7 @@ Each language runs in its own container:
 
 ---
 
-# 10.8. No Access to Host Machine
+# 9.8. No Access to Host Machine
 
 Because code runs **inside Docker**, it cannot:
 
@@ -1542,7 +1499,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 11. Docker Security Experiments
+# 10. Docker Security Experiments
 
 This section demonstrates important security experiments that help you understand what Docker **can** and **cannot** protect your system from. These experiments were part of the assignment and serve as hands-on learning to evaluate container isolation.
 
@@ -1563,9 +1520,9 @@ Each test shows:
 
 ---
 
-# 11.1. Experiment 1 — Reading `/etc/passwd`
+# 10.1. Experiment 1 — Reading `/etc/passwd`
 
-### 🧪 Test Command (Terminal 2):
+### Test Command (Terminal 2):
 
 ```
 curl -s -X POST http://localhost:5000/run \
@@ -1573,18 +1530,17 @@ curl -s -X POST http://localhost:5000/run \
  -d '{"code": "with open(\"/etc/passwd\") as f:\n print(f.read())"}'
 ```
 
-### ✅ Expected Behavior:
+### Expected Behavior:
 
 * It **successfully reads** `/etc/passwd`.
 * But the file is **from the Docker container**, not the host machine.
 
-### 📝 Explanation:
+### Explanation:
 
 * Docker containers contain their own minimal filesystem.
 * `/etc/passwd` inside the container lists container users, not system users.
 * This confirms **filesystem isolation** works correctly.
 
-### 📸 Screenshot Placeholder:
 
 ```markdown
 ![Experiment Reading etc-passwd](docs/screenshots/experiment-read-passwd.png)
@@ -1592,9 +1548,9 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 11.2. Experiment 2 — Writing to `/tmp` (Before Read-Only Mode)
+# 10.2. Experiment 2 — Writing to `/tmp` (Before Read-Only Mode)
 
-### 🧪 Test Command:
+### Test Command:
 
 ```
 curl -s -X POST http://localhost:5000/run \
@@ -1602,7 +1558,7 @@ curl -s -X POST http://localhost:5000/run \
  -d '{"code": "with open(\"/tmp/test.txt\", \"w\") as f:\n f.write(\"hacked!\")\nprint(open(\"/tmp/test.txt\").read())"}'
 ```
 
-### ✅ Expected Behavior:
+### Expected Behavior:
 
 * This **works successfully**, printing:
 
@@ -1611,12 +1567,12 @@ curl -s -X POST http://localhost:5000/run \
   ```
 * Because by default Docker allows the container to write inside its own filesystem.
 
-### 📝 Explanation:
+### Explanation:
 
 * Containers have a writable layer unless explicitly made read-only.
 * This is safe for the host machine, because the write happens **inside the container**, not on your system.
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Experiment Write Tmp Before Readonly](docs/screenshots/experiment-write-before-readonly.png)
@@ -1624,7 +1580,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 11.3. Experiment 3 — Writing to `/tmp` After Enabling Read-Only Filesystem
+# 10.3. Experiment 3 — Writing to `/tmp` After Enabling Read-Only Filesystem
 
 When using this Docker flag:
 
@@ -1634,7 +1590,7 @@ When using this Docker flag:
 
 Docker prevents all write attempts to the filesystem **except** mounted volumes.
 
-### 🧪 Test Command:
+### Test Command:
 
 ```
 curl -s -X POST http://localhost:5000/run \
@@ -1642,7 +1598,7 @@ curl -s -X POST http://localhost:5000/run \
  -d '{"code": "with open(\"/tmp/test.txt\", \"w\") as f:\n f.write(\"blocked!\")"}'
 ```
 
-### ❌ Expected Behavior:
+### Expected Behavior:
 
 An error such as:
 
@@ -1653,13 +1609,13 @@ An error such as:
 }
 ```
 
-### 📝 Explanation:
+### Explanation:
 
 * The root filesystem is read-only.
 * Attempting to write anywhere (other than mounted volumes) fails.
 * Demonstrates stronger filesystem isolation.
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Experiment Write Tmp After Readonly](docs/screenshots/experiment-write-after-readonly.png)
@@ -1667,7 +1623,7 @@ An error such as:
 
 ---
 
-# 11.4. Experiment 4 — Attempting Network Access
+# 10.4. Experiment 4 — Attempting Network Access
 
 Since containers run with:
 
@@ -1677,7 +1633,7 @@ Since containers run with:
 
 nobody inside the container can use the internet.
 
-### 🧪 Test Command:
+### Test Command:
 
 ```
 curl -s -X POST http://localhost:5000/run \
@@ -1685,7 +1641,7 @@ curl -s -X POST http://localhost:5000/run \
  -d '{"code": "import urllib.request\nurllib.request.urlopen(\"http://example.com\")"}'
 ```
 
-### ❌ Expected Behavior:
+### Expected Behavior:
 
 An error similar to:
 
@@ -1693,13 +1649,13 @@ An error similar to:
 Temporary failure in name resolution
 ```
 
-### 📝 Explanation:
+### Explanation:
 
 * No DNS resolution.
 * No internet.
 * Prevents malicious code from contacting external servers.
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Experiment Network Block](docs/screenshots/experiment-network-block.png)
@@ -1707,9 +1663,9 @@ Temporary failure in name resolution
 
 ---
 
-# 11.5. Experiment 5 — Attempting to Escape the Container
+# 10.5. Experiment 5 — Attempting to Escape the Container
 
-### 🧪 Test Idea:
+### Test Idea:
 
 Try Python code that attempts to traverse directories:
 
@@ -1729,12 +1685,12 @@ print(os.listdir("/"))
 ['bin', 'usr', 'lib', 'etc', 'app', ...]
 ```
 
-### 📝 Explanation:
+### Explanation:
 
 * Docker isolates the process in its own filesystem and process namespace.
 * Direct escape is not possible without a Docker or kernel vulnerability.
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Experiment Container Isolation](docs/screenshots/experiment-container-isolation.png)
@@ -1742,9 +1698,9 @@ print(os.listdir("/"))
 
 ---
 
-# 11.6. Experiment 6 — Running a Malicious Fork Bomb (Simulated)
+# 10.6.Experiment 6 — Running a Malicious Fork Bomb (Simulated)
 
-⚠️ **IMPORTANT:** You MUST NOT execute a real fork bomb.
+ **IMPORTANT:** You MUST NOT execute a real fork bomb.
 
 Example malicious code (DO NOT RUN):
 
@@ -1759,12 +1715,12 @@ Example malicious code (DO NOT RUN):
   * Shell is not available
   * Process limits + timeout kill runaway programs
 
-### 📝 Explanation:
+### Explanation:
 
 * The sandbox protects host OS from harmful shell-level operations.
 * Containers run isolated processes with strict resource limits.
 
-### 📸 Screenshot Placeholder:
+###  Screenshot Placeholder:
 
 ```markdown
 ![Experiment Fork Bomb Protection](docs/screenshots/experiment-forkbomb.png)
@@ -1772,7 +1728,7 @@ Example malicious code (DO NOT RUN):
 
 ---
 
-# 11.7. Summary of Findings
+# 10.7. Summary of Findings
 
 | Experiment                       | Result               | Meaning                            |
 | -------------------------------- | -------------------- | ---------------------------------- |
@@ -1785,9 +1741,9 @@ Example malicious code (DO NOT RUN):
 
 ---
 
-# 11.8. What These Experiments Teach Us
+# 10.8. What These Experiments Teach Us
 
-### ✔ Docker **does** provide:
+### Docker **does** provide:
 
 * Filesystem isolation
 * Network isolation
@@ -1795,7 +1751,7 @@ Example malicious code (DO NOT RUN):
 * Resource (CPU/memory) control
 * Read-only root filesystem support
 
-### ✘ Docker **does NOT** provide full security:
+### Docker **does NOT** provide full security:
 
 * Root inside the container can still be dangerous
 * Vulnerable Docker daemon → host compromise
@@ -1814,7 +1770,7 @@ Docker is a **great sandbox for learning and basic protection**, but **not enoug
 
 ---
 
-# 12. Full Test Suite
+# 11. Full Test Suite
 
 This section includes **all test commands** required to verify correct functionality, security, and stability of the Safe Code Executor. These tests should be run from **Terminal 2**, while **Terminal 1** is running the Flask server.
 
@@ -1829,7 +1785,7 @@ This section ensures that *every requirement* in the assignment is validated.
 
 ---
 
-## 📌 Screenshot Placeholder (Test Suite Overview)
+## Screenshot Placeholder (Test Suite Overview)
 
 ```markdown
 ![Test Suite Overview](docs/screenshots/test-suite-overview.png)
@@ -1837,7 +1793,7 @@ This section ensures that *every requirement* in the assignment is validated.
 
 ---
 
-# 12.1. Test 1 — Simple Python Print
+# 11.1. Test 1 — Simple Python Print
 
 ### Command:
 
@@ -1859,7 +1815,7 @@ curl -s -X POST http://localhost:5000/run \
 {"output":"Hello"}
 ```
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Test 1 Output](docs/screenshots/test1-simple-print.png)
@@ -1867,7 +1823,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 12.2. Test 2 — Multi-Line Python Code
+# 11.2. Test 2 — Multi-Line Python Code
 
 ### Command:
 
@@ -1896,7 +1852,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 12.3. Test 3 — For Loop Output
+# 11.3. Test 3 — For Loop Output
 
 ### Command:
 
@@ -1917,7 +1873,7 @@ curl -s -X POST http://localhost:5000/run \
 {"output":"0\n1\n2\n3\n4"}
 ```
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![For Loop Output](docs/screenshots/test3-loop.png)
@@ -1925,7 +1881,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 12.4. Test 4 — Read `/etc/passwd`
+# 11.4. Test 4 — Read `/etc/passwd`
 
 ### Command:
 
@@ -1944,7 +1900,7 @@ curl -s -X POST http://localhost:5000/run \
 
 * You see *container's* `/etc/passwd`, not the host's.
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Read etc Passwd](docs/screenshots/test4-read-passwd.png)
@@ -1952,7 +1908,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 12.5. Test 5 — Write Before Read-Only Mode
+# 11.5. Test 5 — Write Before Read-Only Mode
 
 > Only works if you temporarily remove `--read-only` from Docker flags.
 
@@ -1974,7 +1930,7 @@ curl -s -X POST http://localhost:5000/run \
 hacked!
 ```
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Write Before Readonly](docs/screenshots/test5-before-readonly.png)
@@ -1982,7 +1938,7 @@ hacked!
 
 ---
 
-# 12.6. Test 6 — Write After Read-Only Mode
+# 11.6. Test 6 — Write After Read-Only Mode
 
 Requires `--read-only` in Docker command.
 
@@ -2015,7 +1971,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 12.7. Test 7 — Infinite Loop Timeout
+# 11.7. Test 7 — Infinite Loop Timeout
 
 ### Command:
 
@@ -2044,7 +2000,7 @@ time curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 12.8. Test 8 — Memory Bomb
+# 11.8. Test 8 — Memory Bomb
 
 ### Command:
 
@@ -2067,7 +2023,7 @@ curl -s -X POST http://localhost:5000/run \
 {"error": "Code execution failed.", "details": ""}
 ```
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Memory Test](docs/screenshots/test8-memory.png)
@@ -2075,7 +2031,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 12.9. Test 9 — Network Block
+# 11.9. Test 9 — Network Block
 
 ### Command:
 
@@ -2098,7 +2054,7 @@ Error with DNS failure:
 Temporary failure in name resolution
 ```
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Network Test](docs/screenshots/test9-network.png)
@@ -2106,7 +2062,7 @@ Temporary failure in name resolution
 
 ---
 
-# 12.10. Test 10 — Code Too Long (> 5000 chars)
+# 11.10. Test 10 — Code Too Long (> 5000 chars)
 
 ### Command:
 
@@ -2138,7 +2094,7 @@ curl -s -X POST http://localhost:5000/run -H "Content-Type: application/json" -d
 
 ---
 
-# 12.11. Test 11 — Basic Node.js Execution (Bonus)
+# 11.11. Test 11 — Basic Node.js Execution (Bonus)
 
 ### Command:
 
@@ -2159,7 +2115,7 @@ curl -s -X POST http://localhost:5000/run \
 {"output":"300"}
 ```
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Node Test](docs/screenshots/test11-node.png)
@@ -2167,7 +2123,7 @@ curl -s -X POST http://localhost:5000/run \
 
 ---
 
-# 12.12. Test 12 — Complex Mixed Output
+# 11.12. Test 12 — Complex Mixed Output
 
 ### Command:
 
@@ -2193,7 +2149,7 @@ Value: 2
 
 ---
 
-# 13. Internal Design
+# 12. Internal Design
 
 This section explains the **architecture**, **design decisions**, and **internal workflow** of the Safe Code Executor system. It describes how Python/Node.js code is processed, validated, executed inside Docker, and how output/error responses are generated.
 
@@ -2209,7 +2165,7 @@ This section is critical for demonstrating understanding of secure sandbox desig
 
 ---
 
-# 13.1. High-Level Overview
+# 12.1. High-Level Overview
 
 The system consists of three major components:
 
@@ -2233,7 +2189,7 @@ The system consists of three major components:
 * Executes untrusted user code safely
 * Provides filesystem, memory, CPU, and network isolation
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![System Overview](docs/screenshots/system-overview.png)
@@ -2241,7 +2197,7 @@ The system consists of three major components:
 
 ---
 
-# 13.2. Backend Request Flow (Step-by-Step)
+# 12.2. Backend Request Flow (Step-by-Step)
 
 This is the exact lifecycle of every request:
 
@@ -2333,7 +2289,7 @@ Or error:
 
 ---
 
-# 13.3. Docker Sandbox Architecture
+# 12.3. Docker Sandbox Architecture
 
 Inside the container:
 
@@ -2361,7 +2317,7 @@ Inside the container:
 
 ---
 
-# 13.4. Security Flags Breakdown
+# 12.4. Security Flags Breakdown
 
 | Flag                | Purpose                     |
 | ------------------- | --------------------------- |
@@ -2372,7 +2328,7 @@ Inside the container:
 | `-v host_path:/app` | Only mount script directory |
 | `--pids-limit=64`   | Prevent fork bombs          |
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Security Flags](docs/screenshots/security-flags-table.png)
@@ -2380,7 +2336,7 @@ Inside the container:
 
 ---
 
-# 13.5. Error Handling Design
+# 12.5. Error Handling Design
 
 Different errors are handled differently:
 
@@ -2422,7 +2378,7 @@ Cannot connect to Docker daemon
 
 ---
 
-# 13.6. Language Support Design (Python + Node.js)
+# 12.6. Language Support Design (Python + Node.js)
 
 The backend selects the correct runtime image based on:
 
@@ -2450,7 +2406,7 @@ By adding a simple mapping table.
 
 ---
 
-# 13.7. Why Docker Instead of Local Execution?
+# 12.7. Why Docker Instead of Local Execution?
 
 ### **Advantages:**
 
@@ -2477,7 +2433,7 @@ Docker provides a safe execution sandbox.
 
 ---
 
-# 13.8. Internal Folder Naming Strategy
+# 12.8. Internal Folder Naming Strategy
 
 Temp folders are created using:
 
@@ -2501,7 +2457,7 @@ Example folder:
 
 ---
 
-# 13.9. Cleanup Strategy
+# 12.9. Cleanup Strategy
 
 After each run:
 
@@ -2522,7 +2478,7 @@ This ensures:
 
 ---
 
-# 14. Extending the Project
+# 13. Extending the Project
 
 This section explains how to expand the Safe Code Executor with new languages, UI improvements, and advanced sandboxing features. These extensions demonstrate forward-thinking design and show how the system can evolve beyond the basic assignment requirements.
 
@@ -2543,7 +2499,7 @@ Each subsection includes:
 
 ---
 
-# 14.1. Adding More Programming Languages
+# 13.1. Adding More Programming Languages
 
 The system currently supports:
 
@@ -2558,7 +2514,7 @@ Adding new languages only requires:
 
 ---
 
-### ✔ Example: Add Ruby Support
+### Example: Add Ruby Support
 
 #### Step 1 — Pull the Docker image:
 
@@ -2602,7 +2558,7 @@ LANGUAGE_CONFIG = {
 
 ---
 
-# 14.2. Upgrading the Web UI with the Monaco Editor (VS Code's Real Editor)
+# 13.2. Upgrading the Web UI with the Monaco Editor (VS Code's Real Editor)
 
 The current UI uses a basic `<textarea>`.
 A major enhancement is replacing it with **Monaco Editor**, the same editor engine used inside VS Code.
@@ -2637,7 +2593,7 @@ require(["vs/editor/editor.main"], function () {
 });
 ```
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Monaco Editor Upgrade](docs/screenshots/extension-monaco.png)
@@ -2645,7 +2601,7 @@ require(["vs/editor/editor.main"], function () {
 
 ---
 
-# 14.3. Adding Execution History
+# 13.3. Adding Execution History
 
 You can store the last N executions and display them in a sidebar.
 
@@ -2677,7 +2633,7 @@ A collapsible sidebar showing history entries.
 
 ---
 
-# 14.4. Running Code in a Non-Root User Inside Docker
+# 13.4. Running Code in a Non-Root User Inside Docker
 
 Currently containers may run as root (default Docker behavior).
 For stronger isolation:
@@ -2706,7 +2662,7 @@ For stronger isolation:
 
 ---
 
-# 14.5. Add CPU Usage Limits
+# 13.5. Add CPU Usage Limits
 
 To prevent busy loops from consuming 100% CPU.
 
@@ -2718,7 +2674,7 @@ To prevent busy loops from consuming 100% CPU.
 
 This restricts the container to half a CPU.
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![CPU Limit](docs/screenshots/extension-cpu.png)
@@ -2726,7 +2682,7 @@ This restricts the container to half a CPU.
 
 ---
 
-# 14.6. Add Log Storage and Admin Dashboard
+# 13.6. Add Log Storage and Admin Dashboard
 
 A future enhancement for instructors or administrators.
 
@@ -2744,7 +2700,7 @@ A future enhancement for instructors or administrators.
 
 ---
 
-# 14.7. Container Pooling (Advanced Optimization)
+# 13.7. Container Pooling (Advanced Optimization)
 
 Starting a new Docker container for every request is slow.
 
@@ -2766,7 +2722,7 @@ Starting a new Docker container for every request is slow.
 
 ---
 
-# 14.8. Adding Support for File Inputs & Multiple Files
+# 13.8. Adding Support for File Inputs & Multiple Files
 
 Future versions could allow users to upload small files used by their code.
 
@@ -2784,7 +2740,7 @@ Future versions could allow users to upload small files used by their code.
 
 ---
 
-# 14.9. Adding Docker Alternatives (Isolation Layers)
+# 13.9. Adding Docker Alternatives (Isolation Layers)
 
 For stronger sandboxing, consider:
 
@@ -2798,7 +2754,7 @@ For stronger sandboxing, consider:
 * Protects even if Docker daemon is compromised
 * Adds kernel-level isolation
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Isolation Layers](docs/screenshots/extension-isolation.png)
@@ -2806,7 +2762,7 @@ For stronger sandboxing, consider:
 
 ---
 
-# 15. Troubleshooting Guide
+# 14. Troubleshooting Guide
 
 This section helps you diagnose and fix common issues encountered while setting up, running, or extending the Safe Code Executor project. Each issue includes symptoms, causes, and step-by-step fixes. Screenshot placeholders are included for GitHub documentation.
 
@@ -2822,7 +2778,7 @@ This guide is written to ensure **students, reviewers, or future developers** ca
 
 ---
 
-# 15.1. Problem: `python3 -m venv` Fails (ensurepip missing)
+# 14.1. Problem: `python3 -m venv` Fails (ensurepip missing)
 
 ### **Symptom:**
 
@@ -2849,7 +2805,7 @@ sudo apt install python3-venv -y
 
 ---
 
-# 15.2. Problem: Docker command fails with “Permission denied”
+# 14.2. Problem: Docker command fails with “Permission denied”
 
 ### **Symptom:**
 
@@ -2881,7 +2837,7 @@ newgrp docker
 
 ---
 
-# 15.3. Problem: Flask server doesn’t restart after code changes
+# 14.3. Problem: Flask server doesn’t restart after code changes
 
 ### **Cause:**
 
@@ -2901,7 +2857,7 @@ app.run(debug=True)
 export FLASK_ENV=development
 ```
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Flask Debug Fix](docs/screenshots/trouble-flask-debug.png)
@@ -2909,7 +2865,7 @@ export FLASK_ENV=development
 
 ---
 
-# 15.4. Problem: Output shows nothing (empty output)
+# 14.4. Problem: Output shows nothing (empty output)
 
 ### **Possible Causes:**
 
@@ -2931,7 +2887,7 @@ export FLASK_ENV=development
 
 ---
 
-# 15.5. Problem: Infinite loop does NOT timeout
+# 14.5. Problem: Infinite loop does NOT timeout
 
 ### **Cause:**
 
@@ -2953,7 +2909,7 @@ result = subprocess.run(cmd, ..., timeout=10, ...)
 
 ---
 
-# 15.6. Problem: Memory bomb doesn’t fail as expected
+# 14.6. Problem: Memory bomb doesn’t fail as expected
 
 ### **Possible Causes:**
 
@@ -2977,7 +2933,7 @@ Verify memory limit flag exists.
 
 ---
 
-# 15.7. Problem: Network calls succeed (they shouldn't)
+# 14.7. Problem: Network calls succeed (they shouldn't)
 
 ### **Cause:**
 
@@ -2999,7 +2955,7 @@ Verify Docker command contains:
 
 ---
 
-# 15.8. Problem: File writes still work after enabling `--read-only`
+# 14.8. Problem: File writes still work after enabling `--read-only`
 
 ### **Possible Causes:**
 
@@ -3023,7 +2979,7 @@ Verify Docker command contains:
 
 ---
 
-# 15.9. Problem: Node.js execution returns “command not found”
+# 14.9. Problem: Node.js execution returns “command not found”
 
 ### **Cause:**
 
@@ -3043,7 +2999,7 @@ docker pull node:20-slim
 
 ---
 
-# 15.10. Problem: UI Buttons Not Working
+# 14.10. Problem: UI Buttons Not Working
 
 ### **Causes:**
 
@@ -3063,7 +3019,7 @@ Try:
 <button id="run-btn">Run Code</button>
 ```
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![UI Troubleshooting](docs/screenshots/trouble-ui.png)
@@ -3071,7 +3027,7 @@ Try:
 
 ---
 
-# 15.11. Problem: Two terminals become out of sync
+# 14.11. Problem: Two terminals become out of sync
 
 ### **Cause:**
 
@@ -3086,7 +3042,7 @@ cd Safe_Code_Executor
 source venv/bin/activate
 ```
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Two Terminal Troubleshooting](docs/screenshots/trouble-terminals.png)
@@ -3094,7 +3050,7 @@ source venv/bin/activate
 
 ---
 
-# 15.12. Problem: Flask server crashes while executing Docker
+# 14.12. Problem: Flask server crashes while executing Docker
 
 ### **Possible Causes:**
 
@@ -3122,7 +3078,7 @@ docker ps
 ---
 
 
-# 16. Git Deliverables
+# 15. Git Deliverables
 
 This section lists all the files, commits, branches, and Git hygiene practices required for submitting the Safe Code Executor project. It ensures your repository is clean, professional, and easy for reviewers to explore.
 
@@ -3130,7 +3086,7 @@ It also includes screenshot placeholders for GitHub repository structure and com
 
 ---
 
-## 📌 Screenshot Placeholder (GitHub Repository Overview)
+## Screenshot Placeholder (GitHub Repository Overview)
 
 ```markdown
 ![GitHub Repo Overview](docs/screenshots/github-repo-overview.png)
@@ -3138,7 +3094,7 @@ It also includes screenshot placeholders for GitHub repository structure and com
 
 ---
 
-# 16.1. Required Files in the Repository
+# 15.1. Required Files in the Repository
 
 Your final GitHub repo **must include** the following files:
 
@@ -3164,7 +3120,7 @@ Safe_Code_Executor/
 * **requirements.txt** → Python dependencies
 * **.gitignore** → Ignore venv, logs, caches, etc.
 
-### 📸 Screenshot Placeholder:
+### Screenshot Placeholder:
 
 ```markdown
 ![Project Structure](docs/screenshots/github-structure.png)
@@ -3172,7 +3128,7 @@ Safe_Code_Executor/
 
 ---
 
-# 16.2. Recommended `.gitignore`
+# 15.2. Recommended `.gitignore`
 
 Your `.gitignore` should include:
 
@@ -3193,7 +3149,7 @@ docs/screenshots/*.png
 
 ---
 
-# 16.3. Commit Naming Standards
+# 15.3. Commit Naming Standards
 
 Use **clean, descriptive commit messages** such as:
 
@@ -3221,7 +3177,7 @@ asdfgqwe
 
 ---
 
-# 16.4. Branch Recommendations
+# 15.4. Branch Recommendations
 
 Although optional for small projects, recommended branching strategy:
 
@@ -3246,7 +3202,7 @@ feature/docs → README and documentation
 
 ---
 
-# 16.5. Ready-to-Commit Patch (Example)
+# 15.5. Ready-to-Commit Patch (Example)
 
 Below is an example patch (diff) for final submission:
 
@@ -3266,7 +3222,7 @@ This patch message summarizes the entire project in a professional way.
 
 ---
 
-# 16.6. Tagging Your Final Release
+# 15.6. Tagging Your Final Release
 
 Create a Git tag for your final version:
 
@@ -3288,7 +3244,7 @@ git push origin v1.0
 
 ---
 
-# 16.7. Optional: Create a GitHub Release Page
+# 15.7. Optional: Create a GitHub Release Page
 
 For a polished project:
 
@@ -3306,39 +3262,8 @@ For a polished project:
 
 ---
 
-# 16.8. Submission Checklist
 
-Before submitting the assignment, verify:
-
-### Code
-
-* [ ] API works
-* [ ] Node.js bonus works
-* [ ] Web UI works
-* [ ] Security features verified
-
-### Documentation
-
-* [ ] README.md complete
-* [ ] All screenshots added
-* [ ] Clear explanations included
-
-### Git
-
-* [ ] Clean commit history
-* [ ] `.gitignore` correct
-* [ ] No large or unwanted files committed
-* [ ] Final release tagged
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Checklist](docs/screenshots/github-checklist.png)
-```
-
----
-
-# 17. What I Learned
+# 16. What I Learned
 
 This final section reflects on the knowledge and skills gained throughout the Safe Code Executor project. It demonstrates understanding of security concepts, Docker isolation, backend design, and full-stack integration. This reflection is an important part of the assignment and shows the depth of learning.
 
@@ -3346,7 +3271,7 @@ Each subsection includes a clear explanation, real examples from the project, an
 
 ---
 
-## 📌 Screenshot Placeholder (Learning Summary)
+## Screenshot Placeholder (Learning Summary)
 
 ```markdown
 ![Learning Summary](docs/screenshots/learning-summary.png)
@@ -3354,7 +3279,7 @@ Each subsection includes a clear explanation, real examples from the project, an
 
 ---
 
-# 17.1. Running Untrusted Code Safely Is Hard
+# 16.1. Running Untrusted Code Safely Is Hard
 
 Before the project, running user-submitted code sounded simple:
 
@@ -3379,7 +3304,7 @@ This project taught me that **security is not a feature — it is a system.**
 
 ---
 
-# 17.2. Docker Is a Powerful Security Boundary
+# 16.2. Docker Is a Powerful Security Boundary
 
 I learned how Docker isolates code from the host system:
 
@@ -3404,7 +3329,7 @@ This taught me how containers provide a safe execution environment.
 
 ---
 
-# 17.3. Timeouts and Memory Limits Matter
+# 16.3. Timeouts and Memory Limits Matter
 
 Without a timeout, a simple infinite loop would freeze the system:
 
@@ -3430,7 +3355,7 @@ Docker makes this easy using:
 
 ---
 
-# 17.4. Network Access Must Be Blocked
+# 16.4. Network Access Must Be Blocked
 
 Allowing user code to access the internet is a massive security risk.
 I learned this by testing:
@@ -3459,7 +3384,7 @@ Network isolation is essential in any code execution service.
 
 ---
 
-# 17.5. Read-Only Filesystems Enhance Safety
+# 16.5. Read-Only Filesystems Enhance Safety
 
 I learned that even inside Docker, users can still write files unless:
 
@@ -3477,7 +3402,7 @@ enforces a read-only root filesystem.
 
 ---
 
-# 17.6. Building a Full Stack System Is Rewarding
+# 16.6. Building a Full Stack System Is Rewarding
 
 This project helped me integrate:
 
@@ -3495,7 +3420,7 @@ The VS Code–style UI taught me:
 
 ---
 
-# 17.7. Documentation Is Just as Important as Code
+# 16.7. Documentation Is Just as Important as Code
 
 I learned how to write:
 
@@ -3509,7 +3434,7 @@ Good documentation makes the project easy to understand for anyone who opens the
 
 ---
 
-# 17.8. How to Think Like an Attacker
+# 16.8. How to Think Like an Attacker
 
 Security requires anticipating malicious behavior:
 
@@ -3523,7 +3448,7 @@ This project trained me to think adversarially, which is a key skill in cybersec
 
 ---
 
-# 17.9. Clean Git Practices Matter
+# 16.9. Clean Git Practices Matter
 
 Keeping a clean history taught me how to:
 
@@ -3536,7 +3461,7 @@ This is invaluable for teamwork and professional development.
 
 ---
 
-# 17.10. Confidence in Deploying Secure Code Execution Systems
+# 16.10. Confidence in Deploying Secure Code Execution Systems
 
 By the end of this project, I now understand how online coding platforms like:
 
@@ -3556,13 +3481,13 @@ I now have the foundational knowledge to:
 
 ---
 
-# 18. Future Work & Conclusion
+# 17. Future Work & Conclusion
 
 This final section highlights potential future enhancements and provides a strong concluding summary for the Safe Code Executor project. It demonstrates understanding of the system's limitations, opportunities for growth, and key takeaways. This section adds a polished, professional finish to the full documentation.
 
 ---
 
-## 📌 Screenshot Placeholder (Conclusion Overview)
+## Screenshot Placeholder (Conclusion Overview)
 
 ```markdown
 ![Conclusion Overview](docs/screenshots/conclusion-overview.png)
@@ -3570,13 +3495,13 @@ This final section highlights potential future enhancements and provides a stron
 
 ---
 
-# 18.1. Future Improvements
+# 17.1. Future Improvements
 
 Even though the Safe Code Executor is already functional and secure for academic use, there are many ways to evolve it into a production-grade sandbox. Below are enhancements worth exploring.
 
 ---
 
-## 18.1.1. Add Support for More Languages
+## 17.1.1. Add Support for More Languages
 
 Languages that could be added:
 
@@ -3593,7 +3518,7 @@ Expands the executor into a full polyglot coding platform.
 
 ---
 
-## 18.1.2. Replace Textarea with Monaco Editor (Real VS Code Engine)
+## 17.1.2. Replace Textarea with Monaco Editor (Real VS Code Engine)
 
 This would provide:
 
@@ -3607,7 +3532,7 @@ This upgrade would make the UI feel like an actual IDE.
 
 ---
 
-## 18.1.3. Persistent User Sessions
+## 17.1.3. Persistent User Sessions
 
 Allow users to:
 
@@ -3622,7 +3547,7 @@ This would require:
 
 ---
 
-## 18.1.4. Execution Metrics Dashboard
+## 17.1.4. Execution Metrics Dashboard
 
 Track:
 
@@ -3635,23 +3560,23 @@ This is useful for educators and system administrators.
 
 ---
 
-## 18.1.5. Stronger Security Layers
+## 17.1.5. Stronger Security Layers
 
 For production deployments, add:
 
-### ✔ AppArmor Profiles
+### AppArmor Profiles
 
-### ✔ Seccomp Filters
+### Seccomp Filters
 
-### ✔ User Namespaces
+### User Namespaces
 
-### ✔ gVisor or Kata Containers
+### gVisor or Kata Containers
 
 These drastically reduce the damage possible from container escapes.
 
 ---
 
-## 18.1.6. Container Pooling (Performance Optimization)
+## 17.1.6. Container Pooling (Performance Optimization)
 
 Instead of launching a new container per request:
 
@@ -3664,7 +3589,7 @@ Ensuring containers have **no leftover state** between executions.
 
 ---
 
-## 18.1.7. WebSocket-Based Live Output
+## 17.1.7. WebSocket-Based Live Output
 
 Currently, output is returned only at the end of execution.
 
@@ -3677,7 +3602,7 @@ This would allow live logs, similar to Replit or Google Colab.
 
 ---
 
-## 18.1.8. Code File Support
+## 17.1.8. Code File Support
 
 Allow users to upload:
 
@@ -3695,7 +3620,7 @@ Files must be:
 
 ---
 
-# 18.2. Limitations of the Current System
+# 17.2. Limitations of the Current System
 
 Although secure for educational purposes, the current sandbox has limits:
 
@@ -3715,7 +3640,7 @@ Recognizing these limitations is essential for future development.
 
 ---
 
-# 18.3. Final Conclusion
+# 17.3. Final Conclusion
 
 The Safe Code Executor project provided practical experience in:
 
