@@ -361,11 +361,10 @@ source venv/bin/activate
   * **Terminal 2** → Sending requests & running tests
 * This setup is required for observing live logs in Terminal 1.
 
-### Screenshot Placeholder:
 
-```markdown
+
 ![Two Terminal Setup](docs/screenshots/two-terminal-setup.png)
-```
+
 
 ---
 
