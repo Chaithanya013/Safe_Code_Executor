@@ -381,7 +381,7 @@ http://localhost:5000/
 * Loads the VSCode-style web UI.
 * You can type code, run it, clear editor, and view terminal output.
 
-![Web UI Homepage](docs/screenshots/ui-home.png)
+![Web UI Homepage](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/web%20ui%20homepage.png)
 
 
 ---
@@ -395,14 +395,6 @@ Each subsection includes:
 * Commands
 * Explanations
 * Screenshot placeholders (GitHub-friendly)
-
----
-
-## 📌 Screenshot Placeholder (Running the Project Overview)
-
-```markdown
-![Running Project Overview](docs/screenshots/running-project-overview.png)
-```
 
 ---
 
@@ -439,11 +431,8 @@ python3 app.py
  * Running on http://127.0.0.1:5000
 ```
 
-### Screenshot Placeholder:
+![Flask Running](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Flask%20Running.png)
 
-```markdown
-![Flask Running](docs/screenshots/flask-terminal-1.png)
-```
 
 ---
 
@@ -458,11 +447,6 @@ Using two terminals is **essential**:
 
 This separation mirrors real-world backend testing workflows.
 
-### Screenshot Placeholder:
-
-```markdown
-![Two Terminal Setup Explanation](docs/screenshots/two-terminal-explanation.png)
-```
 
 ---
 
@@ -486,11 +470,6 @@ source venv/bin/activate
   * Security verification commands
   * The `run_tests.sh` script
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Terminal 2 Activated](docs/screenshots/terminal2-activated.png)
-```
 
 ---
 
@@ -518,11 +497,6 @@ curl -s -X POST http://localhost:5000/run \
 * Confirms Docker executed your Python code.
 * Confirms JSON response formatting.
 
-### Screenshot Placeholder:
-
-```markdown
-![Test Command Output](docs/screenshots/test-command-output.png)
-```
 
 ---
 
@@ -542,12 +516,6 @@ chmod +x run_tests.sh
 * `chmod +x` makes the script executable.
 * `./run_tests.sh` runs all API tests sequentially.
 * Terminal 1 will show logs for each request.
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Running Test Suite](docs/screenshots/run-tests.png)
-```
 
 ---
 
@@ -572,7 +540,7 @@ http://localhost:5000/
 ### 📸 Screenshot Placeholder:
 
 ```markdown
-![UI Running](docs/screenshots/ui-running.png)
+![UI Running](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/UI%20Run%20Code%20Example.png)
 ```
 
 ---
@@ -600,7 +568,7 @@ Hello from Web UI
 ### 📸 Screenshot Placeholder:
 
 ```markdown
-![UI Output Example](docs/screenshots/ui-output.png)
+![UI Output Example](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/UI%20Run%20Code%20Example.png)
 ```
 
 ---
@@ -613,12 +581,6 @@ Press **CTRL + C** in **Terminal 1** to stop Flask.
 
 * Safe shutdown of the development server.
 * Docker containers automatically clean up because of `--rm`.
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Server Stop](docs/screenshots/server-stop.png)
-```
 
 ---
 
@@ -634,13 +596,6 @@ It includes:
 * Error responses
 * Screenshot placeholders
 
----
-
-## Screenshot Placeholder (API Overview)
-
-```markdown
-![API Usage Overview](docs/screenshots/api-overview.png)
-```
 
 ---
 
@@ -708,7 +663,7 @@ curl -s -X POST http://localhost:5000/run \
 ### 📸 Screenshot Placeholder:
 
 ```markdown
-![Python API Example](docs/screenshots/python-api-example.png)
+![Python API Example](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Python%20API%20Example.png)
 ```
 
 ---
@@ -726,7 +681,7 @@ curl -s -X POST http://localhost:5000/run \
 ### **Expected Output:**
 
 ```json
-{"output": "Hello from Node.js"}
+{"output": "Execution Timed out After 10 seconds"}
 ```
 
 ### **Explanation:**
@@ -735,11 +690,8 @@ curl -s -X POST http://localhost:5000/run \
 * Executes JavaScript safely inside Docker.
 * Same timeout, memory limit, and network restrictions apply.
 
-### 📸 Screenshot Placeholder:
+![Node API Example](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/nodejs%20(bonus).png)
 
-```markdown
-![Node API Example](docs/screenshots/node-api-example.png)
-```
 
 ---
 
@@ -764,11 +716,9 @@ curl -s -X POST http://localhost:5000/run \
 * Multi-line code must use `\n` inside JSON.
 * The output preserves line breaks.
 
-### 📸 Screenshot Placeholder:
 
-```markdown
-![Multi-line Python Output](docs/screenshots/multiline-output.png)
-```
+![Multi-line Python Output](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Multi-line%20Python%20Output.png)
+
 
 ---
 
@@ -796,11 +746,9 @@ curl -s -X POST http://localhost:5000/run \
 * Errors from Python or Node.js are captured and returned in `details`.
 * The API does **not crash** even for invalid user code.
 
-### Screenshot Placeholder:
 
-```markdown
-![API Error Example](docs/screenshots/api-error.png)
-```
+![API Error Example](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/API%20Error%20Example.png)
+
 
 ---
 
@@ -831,11 +779,8 @@ curl -s -X POST http://localhost:5000/run \
 * This prevents memory abuse and oversized payloads.
 * The check happens **before** Docker is called.
 
-### 📸 Screenshot Placeholder:
+![Code Too Long Error](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Code%20Too%20Long%20Error.png)
 
-```markdown
-![Code Too Long Error](docs/screenshots/code-too-long.png)
-```
 
 ---
 
@@ -860,11 +805,8 @@ time curl -s -X POST http://localhost:5000/run \
 * The API enforces a **10-second timeout**.
 * The Docker container is safely terminated.
 
-### Screenshot Placeholder:
 
-```markdown
-![Timeout Error](docs/screenshots/timeout-error.png)
-```
+![Timeout Error](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Timeout%20Error1.png)
 
 ---
 
@@ -892,11 +834,9 @@ curl -s -X POST http://localhost:5000/run \
 * Docker runs with `--network none`.
 * All network access is blocked.
 
-### 📸 Screenshot Placeholder:
 
-```markdown
-![Network Block Error](docs/screenshots/network-block.png)
-```
+![Network Block Error](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Network%20Block%20Error.png)
+
 
 ---
 
@@ -908,11 +848,8 @@ This section explains how the UI works, how to interact with it, and includes sc
 
 ---
 
-## 📌 Screenshot Placeholder (Web UI Overview)
+![Web UI Overview](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Web%20UI%20Overview.png)
 
-```markdown
-![Web UI Overview](docs/screenshots/web-ui-overview.png)
-```
 
 *This screenshot should show the entire UI: sidebar, editor, run button, terminal output.*
 
@@ -932,56 +869,35 @@ http://localhost:5000/
 * The page provides a comfortable coding environment.
 * No additional setup is required.
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Open Web UI](docs/screenshots/web-ui-open.png)
-```
-
 ---
 
 # 8.2. UI Layout
 
 The UI contains four major components:
 
-### **1️⃣ Sidebar**
+### ** 1. Sidebar**
 
 A slim vertical bar similar to VS Code’s side navigation.
 
-```markdown
-![UI Sidebar](docs/screenshots/ui-sidebar.png)
-```
-
-### **2️⃣ Code Editor (Center Panel)**
+### ** 2. Code Editor **
 
 * Monospace font
 * Line numbers
 * Syntax-friendly styling
 * Large editable area
 
-```markdown
-![UI Editor](docs/screenshots/ui-editor.png)
-```
 
-### **3️⃣ Buttons Panel (Top‑Right of Editor)**
+### ** 3. Buttons Panel **
 
 * **Run Code** → sends the code to `/run`
 * **Clear Editor** → clears code input
 * **Clear Terminal** → clears previous output
 
-```markdown
-![UI Buttons](docs/screenshots/ui-buttons.png)
-```
-
-### **4️⃣ Terminal‑Style Output Panel (Bottom Section)**
+### ** 4. Terminal‑Style Output Panel **
 
 * Black background
 * Green/white text for output
 * Red text for errors
-
-```markdown
-![UI Terminal Output](docs/screenshots/ui-terminal.png)
-```
 
 ---
 
@@ -1012,11 +928,8 @@ Click **Run Code**.
 Hello from Web UI
 ```
 
-### Screenshot Placeholder:
+![UI Run Code Example](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/UI%20Run%20Code%20Example.png)
 
-```markdown
-![UI Run Code Example](docs/screenshots/ui-run-example.png)
-```
 
 ---
 
@@ -1042,12 +955,6 @@ NameError: name 'x' is not defined
 * Frontend shows error in red text.
 * Backend returns structured JSON.
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![UI Error Example](docs/screenshots/ui-error.png)
-```
-
 ---
 
 # 8.5. Clearing Editor & Terminal
@@ -1061,12 +968,6 @@ NameError: name 'x' is not defined
 
 * Testing multiple code snippets.
 * Separating outputs for cleaner debugging.
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![UI Clear Buttons](docs/screenshots/ui-clear-buttons.png)
-```
 
 ---
 
@@ -1095,15 +996,10 @@ With payload:
 * Backend runs code inside Docker and returns JSON.
 * UI parses JSON and shows output.
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![UI API Communication Diagram](docs/screenshots/ui-api-flow.png)
-```
 
 ---
 
-# 8.7. Using Node.js From the UI (Bonus Feature)
+# 8.7. Using Node.js From the UI 
 
 Choose Node.js by adding:
 
@@ -1123,12 +1019,6 @@ console.log("Running JavaScript from the UI!")
 
 ```
 Running JavaScript from the UI!
-```
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![UI Node Example](docs/screenshots/ui-node-example.png)
 ```
 
 ---
@@ -1152,14 +1042,6 @@ Running JavaScript from the UI!
 The Safe Code Executor is designed to safely run untrusted code using Docker-based sandboxing. This section explains every security mechanism implemented in the project, how it works, how to test it, and includes screenshot placeholders for GitHub documentation.
 
 Each security layer protects against common attacks such as infinite loops, memory abuse, network access, filesystem modification, and oversized input payloads.
-
----
-
-## 📌 Screenshot Placeholder (Security Overview)
-
-```markdown
-![Security Features Overview](docs/screenshots/security-overview.png)
-```
 
 ---
 
@@ -1198,11 +1080,8 @@ time curl -s -X POST http://localhost:5000/run \
 * Backend kills the process after 10 seconds.
 * Docker container is also terminated safely.
 
-### 📸 Screenshot Placeholder:
 
-```markdown
-![Timeout Protection](docs/screenshots/security-timeout.png)
-```
+![Timeout Protection](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Timeout%20Protection.png)
 
 ---
 
@@ -1236,13 +1115,7 @@ curl -s -X POST http://localhost:5000/run \
 {"error": "Code execution failed.", "details": ""}
 ```
 
-*(details may be empty—Docker kills the program abruptly)*
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Memory Limit Protection](docs/screenshots/security-memory.png)
-```
+![Memory Limit Protection](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Memory%20Limit%20Protection.png)
 
 ---
 
@@ -1280,11 +1153,8 @@ curl -s -X POST http://localhost:5000/run \
 }
 ```
 
-### 📸 Screenshot Placeholder:
+![Network Block Protection](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Network%20Block%20Error.png)
 
-```markdown
-![Network Block Protection](docs/screenshots/security-network.png)
-```
 
 ---
 
@@ -1315,7 +1185,7 @@ We mount the temporary script directory with:
 
 so that the script file itself can be executed.
 
-### 🧪 Test (Write Attempt):
+### Test (Write Attempt):
 
 ```
 curl -s -X POST http://localhost:5000/run \
@@ -1332,11 +1202,7 @@ curl -s -X POST http://localhost:5000/run \
 }
 ```
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Read Only Filesystem Protection](docs/screenshots/security-readonly.png)
-```
+![Read Only Filesystem Protection](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Experiment%20Write%20Tmp%20After%20Readonly.png)
 
 ---
 
@@ -1349,13 +1215,13 @@ if len(code) > 5000:
     return jsonify({"error": "Code too long. Maximum allowed length is 5000 characters."}), 400
 ```
 
-### 🔒 Protection Against:
+### Protection Against:
 
 * Excessively large submissions
 * Payload-based denial-of-service attacks
 * Code editors freezing from huge input
 
-### 🧪 Test:
+### Test:
 
 ```
 b=$(python3 - <<'PY'
@@ -1372,11 +1238,8 @@ curl -s -X POST http://localhost:5000/run -H "Content-Type: application/json" -d
 {"error": "Code too long. Maximum allowed length is 5000 characters."}
 ```
 
-### 📸 Screenshot Placeholder:
 
-```markdown
-![Code Length Limit](docs/screenshots/security-codelimit.png)
-```
+![Code Length Limit](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Code%20Too%20Long%20Error.png)
 
 ---
 
@@ -1396,11 +1259,6 @@ Ensures used containers are automatically deleted after execution.
 * No manual cleanup required
 * Sandboxes do not accumulate over time
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Container Auto Removal](docs/screenshots/security-autorm.png)
-```
 
 ---
 
@@ -1411,17 +1269,11 @@ Each language runs in its own container:
 * Python → `python:3.11-slim`
 * Node.js → `node:20-slim`
 
-### 🔒 Protection Against:
+### Protection Against:
 
 * Cross-language conflicts
 * Mixed dependencies
 * Script execution pollution
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Language Isolation](docs/screenshots/security-language-isolation.png)
-```
 
 ---
 
@@ -1446,11 +1298,8 @@ curl -s -X POST http://localhost:5000/run \
 * The file displayed is **container's /etc/passwd**, not the host's.
 * Isolation confirmed.
 
-### 📸 Screenshot Placeholder:
+![Host Isolation](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Experiment%20Reading%20etc-passwd.png)
 
-```markdown
-![Host Isolation](docs/screenshots/security-host-isolation.png)
-```
 
 ---
 
@@ -1464,14 +1313,6 @@ Each test shows:
 * Why it happens
 * What it means for security
 * Screenshot placeholders for documentation
-
----
-
-## 📌 Screenshot Placeholder (Docker Security Experiment Overview)
-
-```markdown
-![Docker Security Experiments Overview](docs/screenshots/docker-experiments-overview.png)
-```
 
 ---
 
@@ -1497,9 +1338,9 @@ curl -s -X POST http://localhost:5000/run \
 * This confirms **filesystem isolation** works correctly.
 
 
-```markdown
-![Experiment Reading etc-passwd](docs/screenshots/experiment-read-passwd.png)
-```
+
+![Experiment Reading etc-passwd](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Experiment%20Reading%20etc-passwd.png)
+
 
 ---
 
@@ -1527,11 +1368,9 @@ curl -s -X POST http://localhost:5000/run \
 * Containers have a writable layer unless explicitly made read-only.
 * This is safe for the host machine, because the write happens **inside the container**, not on your system.
 
-### Screenshot Placeholder:
 
-```markdown
-![Experiment Write Tmp Before Readonly](docs/screenshots/experiment-write-before-readonly.png)
-```
+![Experiment Write Tmp Before Readonly](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Experiment%20Write%20Tmp%20Before%20Readonly.png)
+
 
 ---
 
@@ -1570,11 +1409,9 @@ An error such as:
 * Attempting to write anywhere (other than mounted volumes) fails.
 * Demonstrates stronger filesystem isolation.
 
-### Screenshot Placeholder:
 
-```markdown
-![Experiment Write Tmp After Readonly](docs/screenshots/experiment-write-after-readonly.png)
-```
+![Experiment Write Tmp After Readonly](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Experiment%20Write%20Tmp%20After%20Readonly.png)
+
 
 ---
 
@@ -1613,7 +1450,7 @@ Temporary failure in name resolution
 ### Screenshot Placeholder:
 
 ```markdown
-![Experiment Network Block](docs/screenshots/experiment-network-block.png)
+![Experiment Network Block](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Network%20Block%20Error.png)
 ```
 
 ---
@@ -1645,11 +1482,6 @@ print(os.listdir("/"))
 * Docker isolates the process in its own filesystem and process namespace.
 * Direct escape is not possible without a Docker or kernel vulnerability.
 
-### Screenshot Placeholder:
-
-```markdown
-![Experiment Container Isolation](docs/screenshots/experiment-container-isolation.png)
-```
 
 ---
 
@@ -1675,11 +1507,6 @@ Example malicious code (DO NOT RUN):
 * The sandbox protects host OS from harmful shell-level operations.
 * Containers run isolated processes with strict resource limits.
 
-###  Screenshot Placeholder:
-
-```markdown
-![Experiment Fork Bomb Protection](docs/screenshots/experiment-forkbomb.png)
-```
 
 ---
 
@@ -1770,11 +1597,8 @@ curl -s -X POST http://localhost:5000/run \
 {"output":"Hello"}
 ```
 
-### Screenshot Placeholder:
+![Test 1 Output](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Test%201%20Output.png)
 
-```markdown
-![Test 1 Output](docs/screenshots/test1-simple-print.png)
-```
 
 ---
 
@@ -1799,11 +1623,8 @@ curl -s -X POST http://localhost:5000/run \
 {"output":"8"}
 ```
 
-### 📸 Screenshot Placeholder:
+![Test 2 Output](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Test%202%20Output.png)
 
-```markdown
-![Test 2 Output](docs/screenshots/test2-multiline.png)
-```
 
 ---
 
@@ -1831,7 +1652,7 @@ curl -s -X POST http://localhost:5000/run \
 ### Screenshot Placeholder:
 
 ```markdown
-![For Loop Output](docs/screenshots/test3-loop.png)
+![For Loop Output](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/For%20Loop%20Output.png)
 ```
 
 ---
@@ -1855,11 +1676,7 @@ curl -s -X POST http://localhost:5000/run \
 
 * You see *container's* `/etc/passwd`, not the host's.
 
-### Screenshot Placeholder:
-
-```markdown
-![Read etc Passwd](docs/screenshots/test4-read-passwd.png)
-```
+![Read etc Passwd](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Experiment%20Reading%20etc-passwd.png)
 
 ---
 
@@ -1885,11 +1702,7 @@ curl -s -X POST http://localhost:5000/run \
 hacked!
 ```
 
-### Screenshot Placeholder:
-
-```markdown
-![Write Before Readonly](docs/screenshots/test5-before-readonly.png)
-```
+![Write Before Readonly](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Experiment%20Write%20Tmp%20Before%20Readonly.png)
 
 ---
 
@@ -1918,12 +1731,7 @@ curl -s -X POST http://localhost:5000/run \
 }
 ```
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Write After Readonly](docs/screenshots/test6-after-readonly.png)
-```
-
+![Write After Readonly](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Experiment%20Write%20Tmp%20After%20Readonly.png)
 ---
 
 # 11.7. Test 7 — Infinite Loop Timeout
@@ -1947,11 +1755,8 @@ time curl -s -X POST http://localhost:5000/run \
 {"error":"Execution timed out after 10 seconds"}
 ```
 
-### 📸 Screenshot Placeholder:
+![Timeout Test](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Timeout%20Error1.png)
 
-```markdown
-![Timeout Test](docs/screenshots/test7-timeout.png)
-```
 
 ---
 
@@ -1978,11 +1783,7 @@ curl -s -X POST http://localhost:5000/run \
 {"error": "Code execution failed.", "details": ""}
 ```
 
-### Screenshot Placeholder:
-
-```markdown
-![Memory Test](docs/screenshots/test8-memory.png)
-```
+![Memory Test](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Memory%20Limit%20Protection.png)
 
 ---
 
@@ -2007,12 +1808,6 @@ Error with DNS failure:
 
 ```
 Temporary failure in name resolution
-```
-
-### Screenshot Placeholder:
-
-```markdown
-![Network Test](docs/screenshots/test9-network.png)
 ```
 
 ---
@@ -2041,11 +1836,8 @@ curl -s -X POST http://localhost:5000/run -H "Content-Type: application/json" -d
 {"error":"Code too long. Maximum allowed length is 5000 characters."}
 ```
 
-### 📸 Screenshot Placeholder:
+![Code Length Test](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Code%20Too%20Long%20Error.png)
 
-```markdown
-![Code Length Test](docs/screenshots/test10-codelimit.png)
-```
 
 ---
 
@@ -2070,12 +1862,6 @@ curl -s -X POST http://localhost:5000/run \
 {"output":"300"}
 ```
 
-### Screenshot Placeholder:
-
-```markdown
-![Node Test](docs/screenshots/test11-node.png)
-```
-
 ---
 
 # 11.12. Test 12 — Complex Mixed Output
@@ -2095,13 +1881,6 @@ Value: 0
 Value: 1
 Value: 2
 ```
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Complex Output Test](docs/screenshots/test12-complex.png)
-```
-
 ---
 
 # 12. Internal Design
@@ -2110,13 +1889,6 @@ This section explains the **architecture**, **design decisions**, and **internal
 
 This section is critical for demonstrating understanding of secure sandbox design.
 
----
-
-## 📌 Screenshot Placeholder (Internal Architecture Diagram)
-
-```markdown
-![Internal Design Architecture](docs/screenshots/internal-architecture.png)
-```
 
 ---
 
@@ -2124,13 +1896,13 @@ This section is critical for demonstrating understanding of secure sandbox desig
 
 The system consists of three major components:
 
-### **1️⃣ Frontend Web UI (index.html)**
+### ** 1. Frontend Web UI (index.html)**
 
 * VS Code–style editor interface
 * Sends code to `/run` endpoint using `fetch()`
 * Displays output and errors in terminal panel
 
-### **2️⃣ Flask Backend (app.py)**
+### ** 2. Flask Backend (app.py)**
 
 * Validates input
 * Chooses Docker image (Python or Node.js)
@@ -2139,16 +1911,11 @@ The system consists of three major components:
 * Captures stdout/stderr
 * Returns JSON response
 
-### **3️⃣ Docker Sandbox**
+### ** 3. Docker Sandbox**
 
 * Executes untrusted user code safely
 * Provides filesystem, memory, CPU, and network isolation
 
-### Screenshot Placeholder:
-
-```markdown
-![System Overview](docs/screenshots/system-overview.png)
-```
 
 ---
 
@@ -2236,12 +2003,6 @@ Or error:
 }
 ```
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Backend Flow](docs/screenshots/backend-flow.png)
-```
-
 ---
 
 # 12.3. Docker Sandbox Architecture
@@ -2263,13 +2024,6 @@ Inside the container:
 /lib
 /etc/passwd
 ```
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Sandbox Internals](docs/screenshots/sandbox-internals.png)
-```
-
 ---
 
 # 12.4. Security Flags Breakdown
@@ -2283,11 +2037,6 @@ Inside the container:
 | `-v host_path:/app` | Only mount script directory |
 | `--pids-limit=64`   | Prevent fork bombs          |
 
-### Screenshot Placeholder:
-
-```markdown
-![Security Flags](docs/screenshots/security-flags-table.png)
-```
 
 ---
 
@@ -2295,13 +2044,13 @@ Inside the container:
 
 Different errors are handled differently:
 
-### **1️⃣ Timeout Errors**
+### ** 1. Timeout Errors**
 
 ```
 "Execution timed out after 10 seconds"
 ```
 
-### **2️⃣ Python/Node Runtime Errors**
+### ** 2. Python/Node Runtime Errors**
 
 Captured in stderr:
 
@@ -2309,7 +2058,7 @@ Captured in stderr:
 NameError: x is not defined
 ```
 
-### **3️⃣ Docker Failure Errors**
+### ** 3. Docker Failure Errors**
 
 Example:
 
@@ -2317,20 +2066,11 @@ Example:
 Cannot connect to Docker daemon
 ```
 
-### **4️⃣ Input Validation Errors**
+### ** 4. Input Validation Errors**
 
 ```
 "Code too long. Maximum allowed length is 5000 characters."
 ```
-
-—all returned cleanly to the user.
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Error Handling Flow](docs/screenshots/error-flow.png)
-```
-
 ---
 
 # 12.6. Language Support Design (Python + Node.js)
@@ -2353,11 +2093,6 @@ This modular design allows adding new languages easily:
 
 By adding a simple mapping table.
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Language Support Diagram](docs/screenshots/language-support.png)
-```
 
 ---
 
@@ -2379,12 +2114,6 @@ By adding a simple mapping table.
 * Install malware
 
 Docker provides a safe execution sandbox.
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Why Docker](docs/screenshots/why-docker.png)
-```
 
 ---
 
@@ -2425,12 +2154,6 @@ This ensures:
 * No disk clutter
 * Perfect cleanup after every execution
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Cleanup Process](docs/screenshots/cleanup-process.png)
-```
-
 ---
 
 # 13. Extending the Project
@@ -2443,14 +2166,6 @@ Each subsection includes:
 * Why it’s useful
 * How to implement it
 * Screenshot placeholders
-
----
-
-## 📌 Screenshot Placeholder (Extensions Overview)
-
-```markdown
-![Extensions Overview](docs/screenshots/extensions-overview.png)
-```
 
 ---
 
@@ -2504,13 +2219,6 @@ LANGUAGE_CONFIG = {
   "code": "puts 5 + 5"
 }
 ```
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Language Extension](docs/screenshots/extension-language.png)
-```
-
 ---
 
 # 13.2. Upgrading the Web UI with the Monaco Editor (VS Code's Real Editor)
@@ -2548,12 +2256,6 @@ require(["vs/editor/editor.main"], function () {
 });
 ```
 
-### Screenshot Placeholder:
-
-```markdown
-![Monaco Editor Upgrade](docs/screenshots/extension-monaco.png)
-```
-
 ---
 
 # 13.3. Adding Execution History
@@ -2574,16 +2276,6 @@ history.append({
     "code": code,
     "output": output_or_error
 })
-```
-
-### UI Enhancement:
-
-A collapsible sidebar showing history entries.
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Execution History](docs/screenshots/extension-history.png)
 ```
 
 ---
@@ -2609,12 +2301,6 @@ For stronger isolation:
 * Some languages may require write access to cache folders
 * Can be fixed by mounting a writable folder
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Non Root Execution](docs/screenshots/extension-nonroot.png)
-```
-
 ---
 
 # 13.5. Add CPU Usage Limits
@@ -2629,11 +2315,6 @@ To prevent busy loops from consuming 100% CPU.
 
 This restricts the container to half a CPU.
 
-### Screenshot Placeholder:
-
-```markdown
-![CPU Limit](docs/screenshots/extension-cpu.png)
-```
 
 ---
 
@@ -2646,12 +2327,6 @@ A future enhancement for instructors or administrators.
 * Store error logs
 * View resource usage by each execution
 * Add analytics dashboard (Flask + Chart.js)
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Admin Dashboard Concept](docs/screenshots/extension-dashboard.png)
-```
 
 ---
 
@@ -2669,12 +2344,6 @@ Starting a new Docker container for every request is slow.
 * Ensuring security between re-used containers
 * Resetting state between executions
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Container Pooling](docs/screenshots/extension-pooling.png)
-```
-
 ---
 
 # 13.8. Adding Support for File Inputs & Multiple Files
@@ -2686,12 +2355,6 @@ Future versions could allow users to upload small files used by their code.
 * Store files in a temp directory
 * Mount directory read-only into container
 * Provide file paths to user code
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Multi File Support](docs/screenshots/extension-multifile.png)
-```
 
 ---
 
@@ -2709,12 +2372,6 @@ For stronger sandboxing, consider:
 * Protects even if Docker daemon is compromised
 * Adds kernel-level isolation
 
-### Screenshot Placeholder:
-
-```markdown
-![Isolation Layers](docs/screenshots/extension-isolation.png)
-```
-
 ---
 
 # 14. Troubleshooting Guide
@@ -2722,14 +2379,6 @@ For stronger sandboxing, consider:
 This section helps you diagnose and fix common issues encountered while setting up, running, or extending the Safe Code Executor project. Each issue includes symptoms, causes, and step-by-step fixes. Screenshot placeholders are included for GitHub documentation.
 
 This guide is written to ensure **students, reviewers, or future developers** can quickly resolve problems.
-
----
-
-## 📌 Screenshot Placeholder (Troubleshooting Overview)
-
-```markdown
-![Troubleshooting Overview](docs/screenshots/troubleshooting-overview.png)
-```
 
 ---
 
@@ -2750,12 +2399,6 @@ Your system is missing the `python3-venv` package.
 ```
 sudo apt update
 sudo apt install python3-venv -y
-```
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Fix ensurepip](docs/screenshots/trouble-venv.png)
 ```
 
 ---
@@ -2784,12 +2427,6 @@ newgrp docker
 * Make sure **Docker Desktop** is running.
 * Ensure WSL integration is enabled.
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Docker Permission Fix](docs/screenshots/trouble-docker-permission.png)
-```
-
 ---
 
 # 14.3. Problem: Flask server doesn’t restart after code changes
@@ -2812,12 +2449,6 @@ app.run(debug=True)
 export FLASK_ENV=development
 ```
 
-### Screenshot Placeholder:
-
-```markdown
-![Flask Debug Fix](docs/screenshots/trouble-flask-debug.png)
-```
-
 ---
 
 # 14.4. Problem: Output shows nothing (empty output)
@@ -2833,12 +2464,6 @@ export FLASK_ENV=development
 * Check Terminal 1 (server logs)
 * Add debug prints to `app.py`
 * Ensure UI terminal panel scrolls properly
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Empty Output](docs/screenshots/trouble-empty-output.png)
-```
 
 ---
 
@@ -2856,12 +2481,6 @@ Ensure:
 result = subprocess.run(cmd, ..., timeout=10, ...)
 ```
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Timeout Troubleshooting](docs/screenshots/trouble-timeout.png)
-```
-
 ---
 
 # 14.6. Problem: Memory bomb doesn’t fail as expected
@@ -2875,16 +2494,6 @@ result = subprocess.run(cmd, ..., timeout=10, ...)
 ```
 
 * Code did not allocate enough memory
-
-### **Fix:**
-
-Verify memory limit flag exists.
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Memory Troubleshooting](docs/screenshots/trouble-memory.png)
-```
 
 ---
 
@@ -2900,12 +2509,6 @@ Verify Docker command contains:
 
 ```bash
 --network none
-```
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Network Troubleshooting](docs/screenshots/trouble-network.png)
 ```
 
 ---
@@ -2926,11 +2529,6 @@ Verify Docker command contains:
 1. Ensure `--read-only` exists.
 2. Ensure no writable mounts except the script directory.
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Readonly Troubleshooting](docs/screenshots/trouble-readonly.png)
-```
 
 ---
 
@@ -2944,12 +2542,6 @@ Node.js Docker image was not pulled.
 
 ```
 docker pull node:20-slim
-```
-
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Node Troubleshooting](docs/screenshots/trouble-node.png)
 ```
 
 ---
@@ -2974,12 +2566,6 @@ Try:
 <button id="run-btn">Run Code</button>
 ```
 
-### Screenshot Placeholder:
-
-```markdown
-![UI Troubleshooting](docs/screenshots/trouble-ui.png)
-```
-
 ---
 
 # 14.11. Problem: Two terminals become out of sync
@@ -2995,12 +2581,6 @@ In both terminals:
 ```
 cd Safe_Code_Executor
 source venv/bin/activate
-```
-
-### Screenshot Placeholder:
-
-```markdown
-![Two Terminal Troubleshooting](docs/screenshots/trouble-terminals.png)
 ```
 
 ---
@@ -3024,12 +2604,6 @@ docker ps
 
 * Verify Docker command in `app.py`
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Docker Crash Troubleshooting](docs/screenshots/trouble-docker-crash.png)
-```
-
 ---
 
 
@@ -3038,14 +2612,6 @@ docker ps
 This section lists all the files, commits, branches, and Git hygiene practices required for submitting the Safe Code Executor project. It ensures your repository is clean, professional, and easy for reviewers to explore.
 
 It also includes screenshot placeholders for GitHub repository structure and commit history.
-
----
-
-## Screenshot Placeholder (GitHub Repository Overview)
-
-```markdown
-![GitHub Repo Overview](docs/screenshots/github-repo-overview.png)
-```
 
 ---
 
@@ -3074,12 +2640,6 @@ Safe_Code_Executor/
 * **run_tests.sh** → Automated test suite script
 * **requirements.txt** → Python dependencies
 * **.gitignore** → Ignore venv, logs, caches, etc.
-
-### Screenshot Placeholder:
-
-```markdown
-![Project Structure](docs/screenshots/github-structure.png)
-```
 
 ---
 
@@ -3124,12 +2684,6 @@ final commit
 asdfgqwe
 ```
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Commit History](docs/screenshots/github-commits.png)
-```
-
 ---
 
 # 15.4. Branch Recommendations
@@ -3149,11 +2703,6 @@ feature/docs → README and documentation
 * Easy rollback
 * Organized development
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Branch Structure](docs/screenshots/github-branches.png)
-```
 
 ---
 
@@ -3191,11 +2740,6 @@ git push origin v1.0
 * Reviewers can easily find the final version.
 * GitHub shows a named release version.
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![Git Tag](docs/screenshots/github-tag.png)
-```
 
 ---
 
@@ -3209,12 +2753,6 @@ For a polished project:
 4. Attach screenshots (optional)
 5. Publish release
 
-### 📸 Screenshot Placeholder:
-
-```markdown
-![GitHub Release Page](docs/screenshots/github-release.png)
-```
-
 ---
 
 
@@ -3223,14 +2761,6 @@ For a polished project:
 This final section reflects on the knowledge and skills gained throughout the Safe Code Executor project. It demonstrates understanding of security concepts, Docker isolation, backend design, and full-stack integration. This reflection is an important part of the assignment and shows the depth of learning.
 
 Each subsection includes a clear explanation, real examples from the project, and connections to industry best practices.
-
----
-
-## Screenshot Placeholder (Learning Summary)
-
-```markdown
-![Learning Summary](docs/screenshots/learning-summary.png)
-```
 
 ---
 
@@ -3439,14 +2969,6 @@ I now have the foundational knowledge to:
 # 17. Future Work & Conclusion
 
 This final section highlights potential future enhancements and provides a strong concluding summary for the Safe Code Executor project. It demonstrates understanding of the system's limitations, opportunities for growth, and key takeaways. This section adds a polished, professional finish to the full documentation.
-
----
-
-## Screenshot Placeholder (Conclusion Overview)
-
-```markdown
-![Conclusion Overview](docs/screenshots/conclusion-overview.png)
-```
 
 ---
 
