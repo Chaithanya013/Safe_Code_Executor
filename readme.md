@@ -363,7 +363,7 @@ source venv/bin/activate
 
 
 
-![Two Terminal Setup](docs/screenshots/two-terminal-setup.png)
+![Two Terminal Setup](https://github.com/Chaithanya013/Safe_Code_Executor/blob/1c1ab1c8b205f5f7f2f3702b86849d30dd880f9c/screenshots/Two%20Terminal%20Setup1.png)
 
 
 ---
@@ -381,11 +381,8 @@ http://localhost:5000/
 * Loads the VSCode-style web UI.
 * You can type code, run it, clear editor, and view terminal output.
 
-### Screenshot Placeholder:
-
-```markdown
 ![Web UI Homepage](docs/screenshots/ui-home.png)
-```
+
 
 ---
 
