@@ -837,8 +837,6 @@ curl -s -X POST http://localhost:5000/run \
 
 The Safe Code Executor includes a built‑in **web interface** designed to look and feel like a lightweight version of **Visual Studio Code**. This UI allows you to type, run, and clear code easily without needing to use cURL commands.
 
-This section explains how the UI works, how to interact with it, and includes screenshot placeholders for documentation.
-
 ---
 
 ![Web UI Overview](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Web%20UI%20Overview.png)
@@ -1556,8 +1554,6 @@ Every test has:
 * Expected behavior
 * Screenshot placeholders for documentation
 
-This section ensures that *every requirement* in the assignment is validated.
-
 ---
 
 ## Screenshot Placeholder (Test Suite Overview)
@@ -1873,9 +1869,6 @@ Value: 2
 # 12. Internal Design
 
 This section explains the **architecture**, **design decisions**, and **internal workflow** of the Safe Code Executor system. It describes how Python/Node.js code is processed, validated, executed inside Docker, and how output/error responses are generated.
-
-This section is critical for demonstrating understanding of secure sandbox design.
-
 
 ---
 
@@ -2365,8 +2358,6 @@ For stronger sandboxing, consider:
 
 This section helps you diagnose and fix common issues encountered while setting up, running, or extending the Safe Code Executor project. Each issue includes symptoms, causes, and step-by-step fixes. Screenshot placeholders are included for GitHub documentation.
 
-This guide is written to ensure **students, reviewers, or future developers** can quickly resolve problems.
-
 ---
 
 # 14.1. Problem: `python3 -m venv` Fails (ensurepip missing)
@@ -2598,7 +2589,6 @@ docker ps
 
 This section lists all the files, commits, branches, and Git hygiene practices required for submitting the Safe Code Executor project. It ensures your repository is clean, professional, and easy for reviewers to explore.
 
-It also includes screenshot placeholders for GitHub repository structure and commit history.
 
 ---
 
@@ -2693,12 +2683,12 @@ feature/docs → README and documentation
 
 ---
 
-# 15.5. Ready-to-Commit Patch (Example)
+# 15.5. Ready-to-Commit Patch
 
 Below is an example patch (diff) for final submission:
 
 ```diff
-+ feat: finalize Safe Code Executor project
++ - feat: finalize Safe Code Executor project
 + - Added Flask backend with Docker sandbox
 + - Implemented Python & Node.js support
 + - Added VS Code-style UI
@@ -2706,10 +2696,6 @@ Below is an example patch (diff) for final submission:
 + - Wrote README with 17 sections
 + - Added troubleshooting and extension sections
 ```
-
-### Explanation:
-
-This patch message summarizes the entire project in a professional way.
 
 ---
 
