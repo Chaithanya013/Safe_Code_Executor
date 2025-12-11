@@ -538,11 +538,8 @@ http://localhost:5000/
   * See terminal-style output
   * Hit Clear Editor or Clear Terminal buttons
 
-### 📸 Screenshot Placeholder:
-
-```markdown
 ![UI Running](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/UI%20Run%20Code%20Example.png)
-```
+
 
 ---
 
@@ -566,11 +563,9 @@ Hello from Web UI
 
 * Confirms the frontend → backend → Docker pipeline works.
 
-### 📸 Screenshot Placeholder:
 
-```markdown
 ![UI Output Example](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/UI%20Run%20Code%20Example.png)
-```
+
 
 ---
 
@@ -1567,10 +1562,6 @@ This section ensures that *every requirement* in the assignment is validated.
 
 ## Screenshot Placeholder (Test Suite Overview)
 
-```markdown
-![Test Suite Overview](docs/screenshots/test-suite-overview.png)
-```
-
 ---
 
 # 11.1. Test 1 — Simple Python Print
@@ -1647,11 +1638,8 @@ curl -s -X POST http://localhost:5000/run \
 {"output":"0\n1\n2\n3\n4"}
 ```
 
-### Screenshot Placeholder:
-
-```markdown
 ![For Loop Output](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/For%20Loop%20Output.png)
-```
+
 
 ---
 
@@ -1730,6 +1718,7 @@ curl -s -X POST http://localhost:5000/run \
 ```
 
 ![Write After Readonly](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Experiment%20Write%20Tmp%20After%20Readonly.png)
+
 ---
 
 # 11.7. Test 7 — Infinite Loop Timeout
@@ -2689,8 +2678,8 @@ asdfgqwe
 Although optional for small projects, recommended branching strategy:
 
 ```
-main        → production-ready code
-feature/ui  → web interface changes
+main         → production-ready code
+feature/ui   → web interface changes
 feature/node → node.js execution support
 feature/docs → README and documentation
 ```
@@ -3148,11 +3137,13 @@ This project builds foundational skills needed to:
 The system is not only functional, but also a strong demonstration of modern engineering practices including documentation, testing, UI/UX, and platform security.
 
 ---
+
 # 18. Author Details
 
 - **Name:** V. Siva Chaithanya
 - **Project:** Safe Code Executor (Secure Python + Node.js Sandbox)
 - **GitHub:** https://github.com/Chaithanya013
+- **Docker Hub:** https://hub.docker.com/u/chaithanya013
 - **Email:** *chaithanyav.0203@gmail.com*
 
 
