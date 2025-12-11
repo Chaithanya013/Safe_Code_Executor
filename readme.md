@@ -251,7 +251,6 @@ venv\Scripts\Activate.ps1
 * `python3 -m venv` creates an independent Python environment.
 * `source venv/bin/activate` activates it so dependencies install locally.
 
-### Screenshot Placeholder:
 
 ![Activate Virtual Environment](https://raw.githubusercontent.com/Chaithanya013/Safe_Code_Executor/f9ee7a76fea9c12d3203b44f3e82f031452ed30a/screenshots/Activate%20Virtual%20Environment.png)
 
@@ -662,11 +661,8 @@ curl -s -X POST http://localhost:5000/run \
 * Docker uses the `python:3.11-slim` image.
 * Output is captured from stdout and returned as JSON.
 
-### 📸 Screenshot Placeholder:
+![Python API Example](https://github.com/Chaithanya013/Safe_Code_Executor/blob/88bc1b4d4d70e0ac01367f14c07969b45add3ccb/screenshots/python%20test%20(bonus).png))
 
-```markdown
-![Python API Example](https://github.com/Chaithanya013/Safe_Code_Executor/blob/882e774a37663232e0cf87694c8c0e1619b11c88/screenshots/Python%20API%20Example.png)
-```
 
 ---
 
@@ -3154,10 +3150,10 @@ The system is not only functional, but also a strong demonstration of modern eng
 ---
 # 18. Author Details
 
-**Name:** V. Siva Chaithanya
-**Project:** Safe Code Executor (Secure Python + Node.js Sandbox)
-**GitHub:** https://github.com/Chaithanya013
-**Email:** *chaithanyav.0203@gmail.com*
+- **Name:** V. Siva Chaithanya
+- **Project:** Safe Code Executor (Secure Python + Node.js Sandbox)
+- **GitHub:** https://github.com/Chaithanya013
+- **Email:** *chaithanyav.0203@gmail.com*
 
 
 
