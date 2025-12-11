@@ -1876,13 +1876,13 @@ This section explains the **architecture**, **design decisions**, and **internal
 
 The system consists of three major components:
 
-### ** 1. Frontend Web UI (index.html)**
+### 1. Frontend Web UI (index.html)
 
 * VS Code–style editor interface
 * Sends code to `/run` endpoint using `fetch()`
 * Displays output and errors in terminal panel
 
-### ** 2. Flask Backend (app.py)**
+### 2. Flask Backend (app.py)
 
 * Validates input
 * Chooses Docker image (Python or Node.js)
@@ -1891,7 +1891,7 @@ The system consists of three major components:
 * Captures stdout/stderr
 * Returns JSON response
 
-### ** 3. Docker Sandbox**
+### 3. Docker Sandbox
 
 * Executes untrusted user code safely
 * Provides filesystem, memory, CPU, and network isolation
@@ -1899,11 +1899,11 @@ The system consists of three major components:
 
 ---
 
-# 12.2. Backend Request Flow (Step-by-Step)
+# 12.2. Backend Request Flow 
 
 This is the exact lifecycle of every request:
 
-## **Step 1 — User submits code**
+## Step 1 — User submits code
 
 Either through API or Web UI.
 
@@ -1916,7 +1916,7 @@ Example payload:
 }
 ```
 
-## **Step 2 — Input validation**
+## Step 2 — Input validation
 
 The backend checks:
 
@@ -1925,7 +1925,7 @@ The backend checks:
 * Language is supported
 * Dangerous payload sizes are blocked early
 
-## **Step 3 — Temporary script creation**
+## Step 3 — Temporary script creation
 
 Backend writes the code into a temp directory:
 
@@ -1936,7 +1936,7 @@ Backend writes the code into a temp directory:
 
 This directory is mounted into the Docker container.
 
-## **Step 4 — Docker command assembly**
+## Step 4 — Docker command assembly
 
 Depending on language:
 
@@ -1953,19 +1953,19 @@ Flags are added:
 * `--memory=128m` → RAM limit
 * `--pids-limit=64` → prevent fork bombs
 
-## **Step 5 — Execute Docker container**
+## Step 5 — Execute Docker container
 
 ```
 subprocess.run([...], timeout=10)
 ```
 
-## **Step 6 — Capture output and errors**
+## Step 6 — Capture output and errors
 
 * `stdout` → success output
 * `stderr` → Python/Node error details
 * `timeout` → forced termination
 
-## **Step 7 — JSON response returned to UI or client**
+## Step 7 — JSON response returned to UI or client
 
 Example:
 
@@ -2024,13 +2024,13 @@ Inside the container:
 
 Different errors are handled differently:
 
-### ** 1. Timeout Errors**
+### 1. Timeout Errors
 
 ```
 "Execution timed out after 10 seconds"
 ```
 
-### ** 2. Python/Node Runtime Errors**
+### 2. Python/Node Runtime Errors
 
 Captured in stderr:
 
@@ -2038,7 +2038,7 @@ Captured in stderr:
 NameError: x is not defined
 ```
 
-### ** 3. Docker Failure Errors**
+### 3. Docker Failure Errors
 
 Example:
 
@@ -2046,7 +2046,7 @@ Example:
 Cannot connect to Docker daemon
 ```
 
-### ** 4. Input Validation Errors**
+### 4. Input Validation Errors
 
 ```
 "Code too long. Maximum allowed length is 5000 characters."
@@ -2078,7 +2078,7 @@ By adding a simple mapping table.
 
 # 12.7. Why Docker Instead of Local Execution?
 
-### **Advantages:**
+### Advantages:
 
 * Full filesystem isolation
 * Memory limits
@@ -2087,7 +2087,7 @@ By adding a simple mapping table.
 * Prevents host compromise
 * Reproducible environments
 
-### **Local execution would be dangerous:**
+### Local execution would be dangerous:
 
 * Code could delete files
 * Steal data
@@ -2201,7 +2201,7 @@ LANGUAGE_CONFIG = {
 ```
 ---
 
-# 13.2. Upgrading the Web UI with the Monaco Editor (VS Code's Real Editor)
+# 13.2. Upgrading the Web UI with the Monaco Editor
 
 The current UI uses a basic `<textarea>`.
 A major enhancement is replacing it with **Monaco Editor**, the same editor engine used inside VS Code.
@@ -2362,17 +2362,17 @@ This section helps you diagnose and fix common issues encountered while setting 
 
 # 14.1. Problem: `python3 -m venv` Fails (ensurepip missing)
 
-### **Symptom:**
+### Symptom:
 
 ```
 The virtual environment was not created successfully because ensurepip is not available...
 ```
 
-### **Cause:**
+### Cause:
 
 Your system is missing the `python3-venv` package.
 
-### **Fix:**
+### Fix:
 
 ```
 sudo apt update
@@ -2383,24 +2383,24 @@ sudo apt install python3-venv -y
 
 # 14.2. Problem: Docker command fails with “Permission denied”
 
-### **Symptom:**
+### Symptom:
 
 ```
 Got permission denied while trying to connect to Docker daemon
 ```
 
-### **Cause:**
+### Cause:
 
 Your user is not in the Docker group.
 
-### **Fix (Linux/WSL):**
+### Fix (Linux/WSL):
 
 ```
 sudo usermod -aG docker $USER
 newgrp docker
 ```
 
-### **Fix (Windows):**
+### Fix (Windows):
 
 * Make sure **Docker Desktop** is running.
 * Ensure WSL integration is enabled.
@@ -2409,11 +2409,11 @@ newgrp docker
 
 # 14.3. Problem: Flask server doesn’t restart after code changes
 
-### **Cause:**
+### Cause:
 
 Debug mode is disabled.
 
-### **Fix:**
+### Fix:
 
 Add:
 
@@ -2431,13 +2431,13 @@ export FLASK_ENV=development
 
 # 14.4. Problem: Output shows nothing (empty output)
 
-### **Possible Causes:**
+### Possible Causes:
 
 * Code prints nothing
 * stderr contained error but UI didn't format it
 * Docker terminated container due to memory or timeout
 
-### **Fix:**
+### Fix:
 
 * Check Terminal 1 (server logs)
 * Add debug prints to `app.py`
@@ -2447,11 +2447,11 @@ export FLASK_ENV=development
 
 # 14.5. Problem: Infinite loop does NOT timeout
 
-### **Cause:**
+### Cause:
 
 `timeout=10` missing in `subprocess.run`.
 
-### **Fix:**
+### Fix:
 
 Ensure:
 
@@ -2463,7 +2463,7 @@ result = subprocess.run(cmd, ..., timeout=10, ...)
 
 # 14.6. Problem: Memory bomb doesn’t fail as expected
 
-### **Possible Causes:**
+### Possible Causes:
 
 * Missing Docker flag:
 
@@ -2477,11 +2477,11 @@ result = subprocess.run(cmd, ..., timeout=10, ...)
 
 # 14.7. Problem: Network calls succeed (they shouldn't)
 
-### **Cause:**
+### Cause:
 
 `--network none` missing.
 
-### **Fix:**
+### Fix:
 
 Verify Docker command contains:
 
@@ -2493,7 +2493,7 @@ Verify Docker command contains:
 
 # 14.8. Problem: File writes still work after enabling `--read-only`
 
-### **Possible Causes:**
+### Possible Causes:
 
 * The write target is inside the mounted folder `/app`
 * You forgot to include:
@@ -2502,7 +2502,7 @@ Verify Docker command contains:
 --read-only
 ```
 
-### **Fix:**
+### Fix:
 
 1. Ensure `--read-only` exists.
 2. Ensure no writable mounts except the script directory.
@@ -2512,11 +2512,11 @@ Verify Docker command contains:
 
 # 14.9. Problem: Node.js execution returns “command not found”
 
-### **Cause:**
+### Cause:
 
 Node.js Docker image was not pulled.
 
-### **Fix:**
+### Fix:
 
 ```
 docker pull node:20-slim
@@ -2526,13 +2526,13 @@ docker pull node:20-slim
 
 # 14.10. Problem: UI Buttons Not Working
 
-### **Causes:**
+### Causes:
 
 * JavaScript not loaded
 * Wrong element IDs
 * Browser caching old version of `index.html`
 
-### **Fix:**
+### Fix:
 
 Try:
 
@@ -2548,11 +2548,11 @@ Try:
 
 # 14.11. Problem: Two terminals become out of sync
 
-### **Cause:**
+### Cause:
 
 One terminal has deactivated venv or wrong directory.
 
-### **Fix:**
+### Fix:
 
 In both terminals:
 
@@ -2565,13 +2565,13 @@ source venv/bin/activate
 
 # 14.12. Problem: Flask server crashes while executing Docker
 
-### **Possible Causes:**
+### Possible Causes:
 
 * Docker Desktop not running
 * Corrupted Docker installation
 * Incorrect Docker flags
 
-### **Fix:**
+### Fix:
 
 * Restart Docker Desktop
 * Run:
