@@ -89,14 +89,24 @@ This project is a **Safe Code Executor**:
 ## 3. Project Structure
 
 ```text
+
 Safe_Code_Executor/
-├── app.py                 # Flask app (API + UI route + Docker integration)
-├── requirements.txt       # Python dependencies (Flask)
+│
+├── app.py                     # Main Flask backend with Python + Node.js sandbox
+├── Dockerfile                 # Builds the Safe Code Executor container image
+├── requirements.txt           # Python dependencies
+├── run_tests.sh               # Automated test suite for sandbox & API
+├── .gitignore                 # Git ignore rules
+│
 ├── templates/
-│   └── index.html         # Web UI (VS Code-style)
-├── run_tests.sh           # Convenience script for running tests
-├── README.md              # Documentation
-└── .gitignore             # Ignore venv, __pycache__, etc.
+│   └── index.html             # VS Code-style web UI interface
+│
+├── screenshots/               # README screenshots
+│   └── Activate_Virtual_Environment.png
+│
+└── README.md                  # Full documentation (Sections 1–18)
+
+
 ```
 
 # 4. Prerequisites
