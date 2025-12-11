@@ -269,11 +269,6 @@ pip install -r requirements.txt
 
 * Installs Flask and any required packages inside the virtual environment.
 
-### Screenshot Placeholder:
-
-
-![Install Requirements](docs/screenshots/pip-install.png)
-
 
 ---
 
@@ -296,11 +291,6 @@ docker pull node:20-slim
 * Downloads the Python and Node.js Docker images locally.
 * Ensures the first execution is instant, without pulling during runtime.
 
-### Screenshot Placeholder:
-
-```markdown
-![Docker Pull Images](docs/screenshots/docker-pull.png)
-```
 
 ---
 
@@ -315,12 +305,6 @@ docker --version
 ### Explanation:
 
 * Confirms Docker is installed and available inside your terminal.
-
-### Screenshot Placeholder:
-
-```markdown
-![Docker Version Check](docs/screenshots/docker-version.png)
-```
 
 ---
 
@@ -337,12 +321,6 @@ docker --version
 1. Open Docker Desktop → *Settings*
 2. Go to **Resources → WSL Integration**
 3. Enable *Ubuntu* or your distribution
-
-### Screenshot Placeholder:
-
-```markdown
-![WSL Integration Settings](docs/screenshots/wsl-integration.png)
-```
 
 ---
 
@@ -361,11 +339,8 @@ python3 app.py
 * Keeps running while you execute tests from another terminal.
 * Runs at: `http://127.0.0.1:5000/`
 
-### Screenshot Placeholder:
+![Flask Server Running](https://github.com/Chaithanya013/Safe_Code_Executor/blob/9c3a5e0b0c1a2eadf6babed3b3e23f47d88c3811/screenshots/Flask%20Server%20Running.png)
 
-```markdown
-![Flask Server Running](docs/screenshots/flask-server-running.png)
-```
 
 ---
 
