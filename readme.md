@@ -251,9 +251,9 @@ venv\Scripts\Activate.ps1
 
 ### Screenshot Placeholder:
 
-```markdown
-![Activate Virtual Environment](docs/screenshots/activate-venv.png)
-```
+![Activate Virtual Environment](https://raw.githubusercontent.com/Chaithanya013/Safe_Code_Executor/f9ee7a76fea9c12d3203b44f3e82f031452ed30a/screenshots/Activate%20Virtual%20Environment.png)
+
+
 
 ---
 
@@ -271,9 +271,9 @@ pip install -r requirements.txt
 
 ### Screenshot Placeholder:
 
-```markdown
+
 ![Install Requirements](docs/screenshots/pip-install.png)
-```
+
 
 ---
 
@@ -3658,6 +3658,191 @@ The system is not only functional, but also a strong demonstration of modern eng
 
 ---
 
+# 18. Future Work & Conclusion
+
+This final section highlights potential future enhancements and provides a strong concluding summary for the Safe Code Executor project. It demonstrates understanding of the system's limitations, opportunities for growth, and key takeaways. This section adds a polished, professional finish to the full documentation.
+
+---
+
+
+# 18.1. Future Improvements
+
+Even though the Safe Code Executor is already functional and secure for academic use, there are many ways to evolve it into a production-grade sandbox. Below are enhancements worth exploring.
+
+---
+
+## 18.1.1. Add Support for More Languages
+
+Languages that could be added:
+
+* Java (OpenJDK)
+* Go
+* Rust
+* C/C++ (with gcc/clang)
+* PHP
+* Bash shell (with strict sandboxing)
+
+### Benefit:
+
+Expands the executor into a full polyglot coding platform.
+
+---
+
+## 18.1.2. Replace Textarea with Monaco Editor (Real VS Code Engine)
+
+This would provide:
+
+* Syntax highlighting
+* Language intelligence
+* Auto-indentation
+* Themes (Dark/Light)
+* Minimap + line gutter
+
+This upgrade would make the UI feel like an actual IDE.
+
+---
+
+## 18.1.3. Persistent User Sessions
+
+Allow users to:
+
+* Save previous code snippets
+* Load history across sessions
+* Store settings such as theme or language preference
+
+This would require:
+
+* A lightweight backend database (SQLite/PostgreSQL)
+* User authentication (optional)
+
+---
+
+## 18.1.4. Execution Metrics Dashboard
+
+Track:
+
+* Runtime duration
+* Memory usage
+* CPU usage
+* Frequency of errors
+
+This is useful for educators and system administrators.
+
+---
+
+## 18.1.5. Stronger Security Layers
+
+For production deployments, add:
+
+### ✔ AppArmor Profiles
+
+### ✔ Seccomp Filters
+
+### ✔ User Namespaces
+
+### ✔ gVisor or Kata Containers
+
+These drastically reduce the damage possible from container escapes.
+
+---
+
+## 18.1.6. Container Pooling (Performance Optimization)
+
+Instead of launching a new container per request:
+
+* Maintain a pool of warm containers
+* Use them for faster execution
+
+### Challenge:
+
+Ensuring containers have **no leftover state** between executions.
+
+---
+
+## 18.1.7. WebSocket-Based Live Output
+
+Currently, output is returned only at the end of execution.
+
+A real-time terminal can be implemented using:
+
+* WebSockets
+* Streaming stdout from Docker
+
+This would allow live logs, similar to Replit or Google Colab.
+
+---
+
+## 18.1.8. Code File Support
+
+Allow users to upload:
+
+* Input files
+* Test case files
+* Dependencies (for Node/Python with limitations)
+
+### Security Consideration:
+
+Files must be:
+
+* Scanned
+* Stored in isolated temp directories
+* Mounted read-only
+
+---
+
+# 18.2. Limitations of the Current System
+
+Although secure for educational purposes, the current sandbox has limits:
+
+### Relies on Docker daemon security
+
+### No protection against kernel vulnerabilities
+
+### No networking inside container — not suitable for network-based exercises
+
+### No persistent storage
+
+### Limited language support
+
+### No concurrent sessions handling
+
+Recognizing these limitations is essential for future development.
+
+---
+
+# 18.3. Final Conclusion
+
+The Safe Code Executor project provided practical experience in:
+
+* Backend API development
+* Running untrusted code securely
+* Docker containerization and isolation
+* Building a developer-friendly UI
+* Implementing resource limits and timeouts
+* Designing a secure software system end-to-end
+* Writing extensive documentation
+
+### Core Achievements:
+
+* Successfully built a working Python & Node.js sandbox
+* Ensured safety via Docker isolation
+* Added UI similar to a lightweight online IDE
+* Implemented detailed logging, validation, and error handling
+* Produced professional documentation spanning all features
+
+### Overall Learning Impact:
+
+This project builds foundational skills needed to:
+
+* Develop code execution services
+* Work on cloud-based IDEs
+* Build secure backend systems
+* Understand container security principles
+* Think like a security engineer
+
+The system is not only functional, but also a strong demonstration of modern engineering practices including documentation, testing, UI/UX, and platform security.
+
+---
 
 
 
