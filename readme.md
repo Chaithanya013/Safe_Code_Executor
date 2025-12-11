@@ -1055,13 +1055,13 @@ subprocess.run(..., timeout=10)
 
 This ensures any code running longer than **10 seconds** is automatically terminated.
 
-### 🔒 Protection Against:
+### Protection Against:
 
 * `while True:` infinite loops
 * Very slow programs
 * Long-running computations
 
-### 🧪 Test (Terminal 2):
+### Test (Terminal 2):
 
 ```
 time curl -s -X POST http://localhost:5000/run \
@@ -1095,13 +1095,13 @@ Docker container is run with:
 
 This restricts program memory usage to **128 MB**.
 
-### 🔒 Protection Against:
+### Protection Against:
 
 * Large object allocation attacks (e.g. `"a" * 1_000_000_000`)
 * Memory overflow
 * System crashes due to excessive RAM usage
 
-### 🧪 Test (Terminal 2):
+### Test (Terminal 2):
 
 ```
 curl -s -X POST http://localhost:5000/run \
@@ -1129,14 +1129,14 @@ Docker is run with:
 
 This disables internet access from inside the container.
 
-### 🔒 Protection Against:
+### Protection Against:
 
 * Data exfiltration attempts
 * HTTP/DNS attacks
 * Malware downloading
 * Remote command & control traffic
 
-### 🧪 Test:
+### Test:
 
 ```
 curl -s -X POST http://localhost:5000/run \
